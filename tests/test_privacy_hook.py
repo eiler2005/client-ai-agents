@@ -63,6 +63,35 @@ def test_privacy_hook_blocks_presentation_files(tmp_path, extension):
     assert "бинарный формат" in result.stderr
 
 
+@pytest.mark.parametrize("scope", ["index", "tree", "commit"])
+@pytest.mark.parametrize(
+    ("path", "reviewed_content", "allowed"),
+    [
+        ("docs/media/readme-hero.png", True, True),
+        ("docs/media/readme-hero.png", False, False),
+        ("docs/media/another-hero.png", True, False),
+        ("docs/media/readme-hero-copy.png", True, False),
+        ("docs/assets/readme-hero.png", True, False),
+        ("clients/invented-client/readme-hero.png", True, False),
+    ],
+)
+def test_privacy_hook_allows_only_reviewed_readme_image(
+    tmp_path, git_hook_env, scope, path, reviewed_content, allowed
+):
+    history_git(tmp_path, "init", "-q", "-b", "main")
+    target = tmp_path / path
+    target.parent.mkdir(parents=True)
+    image = HOOK.parent.parent / "docs/media/readme-hero.png"
+    target.write_bytes(image.read_bytes() if reviewed_content else b"Unreviewed image")
+    history_git(tmp_path, "add", "--", path)
+    args = ["sh", str(HOOK), scope]
+    if scope == "commit":
+        history_git(tmp_path, "commit", "-qm", "Invented image fixture")
+        args.append(history_git(tmp_path, "rev-parse", "HEAD"))
+    result = subprocess.run(args, cwd=tmp_path, env=git_hook_env, capture_output=True, text=True)
+    assert (result.returncode == 0) is allowed, result.stderr
+
+
 @pytest.mark.parametrize("scope", ["index", "tree"])
 @pytest.mark.parametrize(
     ("path", "allowed"),

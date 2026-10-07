@@ -70,6 +70,10 @@ and per proposal, rendered to `docs/` pages and to consulting-grade PDFs. Read
   shared code, methodology, company profile, templates and invented examples only.
   Never push branches under `local/`; pre-push checks every new commit, including deleted
   client files in earlier commits. Do not publish a local history containing client data.
+  The sole raster exception is the original README illustration at
+  `docs/media/readme-hero.png`: the privacy hook verifies the exact reviewed Git blob.
+  Replacing it requires visual review and an explicit hash update. This exception
+  never admits client images, reference decks or generated previews.
 - Assessments also live in `assessments/`, proposals in `proposals/`, and neither **ever enters
   git**: they carry client data and commercial terms. `.gitignore` admits only each
   directory's README and `.gitkeep`. Committed examples are the invented projects in

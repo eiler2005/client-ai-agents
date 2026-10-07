@@ -53,6 +53,18 @@ for path in $staged; do
       ;;
   esac
   case "$path" in
+    docs/media/readme-hero.png)
+      # Оригинальная обложка README, просмотренная перед публикацией.
+      # Разрешены ровно этот путь и этот blob; подмена остаётся запрещённой.
+      if [ "$scope" = "commit" ]; then
+        hero_blob=$(git rev-parse "$revision:$path")
+      else
+        hero_blob=$(git rev-parse ":$path")
+      fi
+      if [ "$hero_blob" != "43aa3494ac35633ead17eed4d133c85c64f89b69" ]; then
+        fail "$path — содержимое не совпадает с просмотренной обложкой README"
+      fi
+      ;;
     *.pdf | *.docx | *.xlsx | *.pptx | *.potx | *.png | *.jpg | *.jpeg | *.zip | *.env | .env | .env.* | *.pem | *.p12)
       fail "$path — бинарный формат, в котором легко унести данные заказчика"
       ;;

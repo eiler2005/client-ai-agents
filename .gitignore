@@ -49,3 +49,6 @@ backups/
 *.env
 .env.*
 *.log
+
+# Оригинальная обложка общей базы. Хук допускает только просмотренный Git blob.
+!/docs/media/readme-hero.png
