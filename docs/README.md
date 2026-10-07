@@ -12,8 +12,15 @@
   профилем компании и проверки перед отправкой.
 - [PRESENTATION.md](PRESENTATION.md) — стандарт консалтинговой подачи, источники
   данных, сборка редактируемого PowerPoint и визуальная проверка.
+- [PRESENTATION_STRUCTURE.md](PRESENTATION_STRUCTURE.md) — структура материала
+  первой встречи по слайдам: задача клиента, решение, Синимекс и методика,
+  пилот, метрики, приёмка и следующие шаги.
+- [PRESENTATION_VISUAL_STANDARD.md](PRESENTATION_VISUAL_STANDARD.md) — принятый
+  стиль Cinimex Consulting и конвейер подготовки и проверки презентаций.
 - [PRESENTATION_RESEARCH.md](PRESENTATION_RESEARCH.md) — исследования McKinsey,
   Bain и BCG, предложения по развитию выбранного стиля Cinimex Consulting.
+- [PRESENTATION_VISUAL_RESEARCH.md](PRESENTATION_VISUAL_RESEARCH.md) — разбор
+  официальных визуализаций McKinsey, Bain, BCG и Accenture.
 
 ## Собирается из источников
 

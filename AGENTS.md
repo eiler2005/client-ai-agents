@@ -1,13 +1,21 @@
-# Оценка проектов ИИ-агентов и коммерческие предложения
+# client-ai-agents — клиентские проекты ИИ-агентов Синимекс
 
-Internal tooling for two linked jobs: scoring a client's AI-agent project against a
-rubric, and building the commercial proposal that follows. One YAML file per assessment
+Shared methods, templates and tooling for client AI-agent projects: understanding the
+task, designing the solution, preparing presentations, assessing readiness and proposing
+delivery. The CLI scores a project against a rubric and builds the commercial proposal
+that follows. One YAML file per assessment
 and per proposal, rendered to `docs/` pages and to consulting-grade PDFs. Read
 [docs/METHODOLOGY.md](docs/METHODOLOGY.md) before changing the rubric or the scoring, and
 [docs/PROPOSAL.md](docs/PROPOSAL.md) before changing the proposal or the company profile.
 
 - Presentations are a standard project output. Read `docs/PRESENTATION.md` before
-  changing them. Follow the accepted `docs/PRESENTATION_VISUAL_STANDARD.md` and its
+  changing them. For client meeting materials, follow the slide-by-slide baseline in
+  `docs/PRESENTATION_STRUCTURE.md`: one contents slide and one executive summary,
+  then explicitly separate our understanding of the client's task from the proposed
+  solution, followed by relevant Cinimex evidence and methodology, pilot, value,
+  acceptance and next decisions. Adapt slide count to the material; keep unconfirmed
+  requirements and proposed architecture visibly labelled.
+  Follow the accepted `docs/PRESENTATION_VISUAL_STANDARD.md` and its
   content → facts → storyline → diagram semantics → render → text and visual QA →
   handoff manifest pipeline for every new or changed deck. `assess slides` builds
   editable PPTX from the same assessment,
