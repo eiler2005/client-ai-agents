@@ -9,18 +9,23 @@ and per proposal, rendered to `docs/` pages and to consulting-grade PDFs. Read
 [docs/PROPOSAL.md](docs/PROPOSAL.md) before changing the proposal or the company profile.
 
 - For new or substantially revised client/management documents, PDFs and presentations,
-  use `skills/cinimex-consulting/SKILL.md` and consult its growing `library/catalog.json`
+  use `skills/consulting-presentations/SKILL.md` and consult its growing `library/catalog.json`
   before writing or layout. Search by reader question, choose a management template M
-  separately from visual relationship V, then adapt to the requested format. Preserve
+  separately from visual relationship V, then adapt to the requested format. Select
+  theme-free geometry and an independent style overlay; this project explicitly uses
+  `cinimex`, while the portable skill defaults to `neutral`. Preserve
   facts, unknowns, conditions and decision roles across formats. Add reusable ideas from
   user examples and research through `references/library-workflow.md`; only abstract
   recipes and original invented examples enter this shared pack. Existing schemas,
   scoring, company sources, privacy rules and renderer checks retain priority.
   See `docs/CONSULTING_ARTIFACTS.md`; the pack is portable to other projects.
+  Original user reference decks and their complete local review live in
+  `reference-materials/slides-examples/` and never enter git. See
+  `reference-materials/README.md`; only abstract patterns and invented examples are shared.
 
 - Presentations are a standard project output. Read `docs/PRESENTATION.md` before
   changing them. For narrative planning and visual review, use
-  `skills/cinimex-consulting/SKILL.md`: select the management decision template
+  `skills/consulting-presentations/SKILL.md`: select the management decision template
   separately from the visual relationship and preserve the evidence and proposal status.
   For client meeting materials, follow the slide-by-slide baseline in
   `docs/PRESENTATION_STRUCTURE.md`: one contents slide and one executive summary,

@@ -17,7 +17,8 @@
   пилот, метрики, приёмка и следующие шаги.
 - [CONSULTING_ARTIFACTS.md](CONSULTING_ARTIFACTS.md) — общий скилл и пополняемая
   база для презентаций, документов и PDF: 10 управленческих шаблонов,
-  12 визуальных композиций, поиск, адаптация форматов и собственные образцы.
+  15 визуальных композиций, отдельные геометрия и стили, поиск, адаптация форматов
+  и собственные образцы. Имя скилла — `consulting-presentations`.
 - [PRESENTATION_VISUAL_STANDARD.md](PRESENTATION_VISUAL_STANDARD.md) — принятый
   стиль Cinimex Consulting и конвейер подготовки и проверки презентаций.
 - [PRESENTATION_RESEARCH.md](PRESENTATION_RESEARCH.md) — исследования McKinsey,

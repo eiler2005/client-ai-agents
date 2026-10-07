@@ -8,7 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-SKILL = Path(__file__).resolve().parents[1] / "skills" / "cinimex-consulting"
+SKILL = Path(__file__).resolve().parents[1] / "skills" / "consulting-presentations"
 SPEC = importlib.util.spec_from_file_location(
     "consulting_library", SKILL / "scripts" / "library.py"
 )
@@ -53,7 +53,7 @@ def test_verified_format_requires_implementation():
 
 
 def test_library_runs_after_pack_is_moved_without_repo_dependencies(tmp_path):
-    moved = tmp_path / "portable" / "cinimex-consulting"
+    moved = tmp_path / "portable" / "consulting-presentations"
     shutil.copytree(SKILL, moved, ignore=shutil.ignore_patterns("__pycache__"))
     result = subprocess.run(
         [sys.executable, str(moved / "scripts" / "library.py"), "search", "ворота", "--json"],
@@ -64,3 +64,27 @@ def test_library_runs_after_pack_is_moved_without_repo_dependencies(tmp_path):
     )
     found = json.loads(result.stdout)
     assert {"M04", "V02"} <= {item["id"] for item in found}
+
+
+def test_style_overlays_keep_geometry_and_content_independent():
+    geometry = json.loads((SKILL / "assets" / "format-profiles.json").read_text())
+    neutral = json.loads((SKILL / "assets" / "styles" / "neutral.json").read_text())
+    cinimex = json.loads((SKILL / "assets" / "styles" / "cinimex.json").read_text())
+
+    def keys(value):
+        if isinstance(value, dict):
+            for name, child in value.items():
+                yield name.casefold()
+                yield from keys(child)
+        elif isinstance(value, list):
+            for child in value:
+                yield from keys(child)
+
+    assert not {"colors", "font", "typography", "brand"} & set(keys(geometry))
+    for style in (neutral, cinimex):
+        assert not {"position", "bounds", "columnwidths", "rowheights", "slidesize"} & set(
+            keys(style)
+        )
+        assert set(style["typography"]) == {"slides", "document"}
+    assert set(neutral["colors"]) == set(cinimex["colors"])
+    assert neutral["colors"] != cinimex["colors"]

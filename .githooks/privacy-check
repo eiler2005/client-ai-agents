@@ -42,7 +42,7 @@ for path in $staged; do
     proposals/*)
       fail "$path — коммерческие предложения не коммитятся (см. proposals/README.md)"
       ;;
-    dist/* | private/* | data/* | output/* | backups/* | tmp/*)
+    reference-materials/slides-examples/* | dist/* | private/* | data/* | output/* | backups/* | tmp/*)
       fail "$path — каталог не предназначен для коммита"
       ;;
     docs/reports/* | docs/proposals/* | docs/assets/*)

@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "id": "wide-slides-and-a4",
+  "description": "Theme-independent example geometry. Frames are x,y,width,height in each format's unit. Management recipes and content are separate from these frames.",
+  "slides": {
+    "unit": "px", "width": 1280, "height": 720, "previewScale": 1.5,
+    "chrome": {
+      "topRule": [72,30,1136,3], "accentRule": [72,30,70,3],
+      "fiction": [72,40,860,22], "title": [72,69,1136,47],
+      "subtitle": [72,123,1136,49], "footer": [72,686,1040,20], "page": [1158,683,50,25]
+    },
+    "stageGates": {
+      "table": [72,178,1136,410], "columnWidths": [211,309,359,257],
+      "rowHeights": [38,63,30,63,30,63,30,63,30],
+      "cellMargins": {"left":9,"right":9,"top":5,"bottom":4},
+      "borderWidth": 0.7, "gateRuleWidth": 1.2,
+      "decisionRole": {"left":815,"topOffset":5,"width":384,"height":24},
+      "criteria": [72,599,1136,28], "persistence": [72,634,1136,48]
+    },
+    "status": {
+      "asOf": [958,40,250,23], "factsHeading": [72,184,630,31], "facts": [72,225,650,67],
+      "riskHeading": [782,184,426,31], "risk": [782,225,426,93],
+      "contentDivider": [72,320,1136], "roadmapHeading": [72,337,780,31],
+      "baselineKey": [888,342,24,7], "baselineLegend": [920,335,115,26],
+      "forecastKey": [1042,342,24,7], "forecastLegend": [1074,335,134,26],
+      "axis": {"left":332,"top":402,"width":816},
+      "tick": {"topOffset":-4,"width":1,"height":146},
+      "weekLabel": {"leftOffset":-29,"top":374,"width":70,"height":23},
+      "taskY": [416,461,506], "taskLabel": {"left":72,"topOffset":-1,"width":226,"height":30},
+      "bar": {"height":8,"baselineOffset":0,"forecastOffset":14},
+      "caveat": [72,554,1136,29], "resultsDivider": [72,590,1136],
+      "recentHeading": [72,607,530,28], "recent": [72,645,530,29],
+      "nextHeading": [668,607,540,28], "next": [668,645,540,29]
+    },
+    "workflow": {
+      "currentHeading": [260,177,393,31], "proposedHeading": [760,177,448,31],
+      "lanes": {"current":{"left":260,"width":393},"proposed":{"left":760,"width":448}},
+      "rowTop": 215, "rowPitch": 97, "nodeHeight": 80,
+      "exception": [760,614,448,50], "exceptionLabel": [986,584,222,27], "currentNote": [260,615,393,49],
+      "role": {"leftInset":13,"topInset":7,"height":25,"exceptionTopInset":4},
+      "action": {"leftInset":13,"topInset":33,"height":46,"exceptionTopInset":28,"exceptionHeight":22},
+      "stepLabel": {"left":72,"topOffset":26,"width":164,"height":30},
+      "nodeBorderWidth": 1, "connectorWidth": 1.4, "exceptionConnectorWidth": 1.6
+    }
+  },
+  "document": {
+    "unit": "pt", "page": "A4", "orientation": "portrait", "margin": 42,
+    "topMargin": 68, "bottomMargin": 45, "maxTableColumns": 5, "previewDpi": 144,
+    "paragraph": {"bodyAfter":7,"titleAfter":13,"headingBefore":8,"headingAfter":9,"decisionAfter":13},
+    "table": {"paddingHorizontal":7,"paddingVertical":9,"ruleWidth":0.45,"gateRuleWidth":0.8,"gatePadding":5},
+    "chrome": {"ruleTopOffset":31,"ruleWidth":1.2,"accentLength":42,"fictionTopOffset":47,"footerY":26},
+    "columns": {"status":[0.49,0.51],"stages":[0.22,0.24,0.29,0.25],"workflow":[0.17,0.415,0.415]},
+    "spacing": {"beforeRoadmap":6,"beforeTable":7,"afterStages":11,"beforeException":14},
+    "roadmap": {
+      "height":144,"axisLeft":112,"rightInset":10,"legendX":[0,150],"legendY":131,
+      "legendWidth":16,"legendHeight":4,"legendTextOffset":23,"legendTextY":128,
+      "axisY":100,"gridBottom":12,"weekLabelY":109,"ruleWidth":0.5,"taskY":[78,49,20],
+      "baselineOffset":4,"forecastOffset":-5,"barHeight":4
+    }
+  }
+}

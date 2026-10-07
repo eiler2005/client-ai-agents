@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "id": "neutral",
+  "name": "Neutral consulting",
+  "colors": {
+    "ink": "#132238",
+    "accent": "#446A93",
+    "accentText": "#34547A",
+    "muted": "#586575",
+    "surface": "#F3F5F8",
+    "border": "#D4DCE5",
+    "background": "#FFFFFF",
+    "accentSurface": "#EEF2F7",
+    "baseline": "#A5B2BE"
+  },
+  "typography": {
+    "slides": {
+      "font": "Arial", "body": 19, "minBody": 17, "title": 34,
+      "heading": 22, "kicker": 15, "source": 12, "exceptionRole": 18,
+      "lineSpacing": 1.0, "heightEstimate": 1.18
+    },
+    "document": {
+      "font": "Arial", "body": 11, "leading": 15, "title": 23,
+      "heading": 15, "source": 8, "titleLeading": 1.22, "headingLeading": 1.25
+    }
+  },
+  "brand": {
+    "slideFooter": "Оригинальная учебная композиция · источник: вымышленный сценарий",
+    "documentFooter": "Источник: оригинальный вымышленный сценарий",
+    "author": "Consulting examples"
+  }
+}

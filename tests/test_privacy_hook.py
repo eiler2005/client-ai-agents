@@ -116,7 +116,11 @@ def history_git(root, *args):
 
 @pytest.mark.parametrize(
     "path",
-    ["clients/invented-client/spec.md", "docs/client-projects/invented-client/spec.md"],
+    [
+        "clients/invented-client/spec.md",
+        "docs/client-projects/invented-client/spec.md",
+        "reference-materials/slides-examples/derived/invented.txt",
+    ],
 )
 def test_pre_push_blocks_client_file_deleted_in_later_commit(tmp_path, git_hook_env, path):
     history_git(tmp_path, "init", "-q", "-b", "main")
@@ -168,3 +172,22 @@ def test_pre_push_blocks_local_history_branch(tmp_path, git_hook_env):
     )
     assert result.returncode != 0
     assert "локальная история не публикуется" in result.stderr
+
+
+@pytest.mark.parametrize("scope", ["index", "tree"])
+def test_privacy_hook_blocks_forced_reference_text(tmp_path, git_hook_env, scope):
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    path = "reference-materials/slides-examples/reviews/invented.json"
+    target = tmp_path / path
+    target.parent.mkdir(parents=True)
+    target.write_text('{"note": "Invented fixture"}\n', encoding="utf-8")
+    subprocess.run(["git", "add", "-f", "--", path], cwd=tmp_path, check=True)
+    result = subprocess.run(
+        ["sh", str(HOOK), scope],
+        cwd=tmp_path,
+        env=git_hook_env,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode != 0
+    assert "каталог не предназначен для коммита" in result.stderr

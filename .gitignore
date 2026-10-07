@@ -31,6 +31,8 @@ proposals/*
 !proposals/.gitkeep
 !proposals/README.md
 private/
+# Пользовательские презентации и полный локальный разбор: никогда не публикуются.
+/reference-materials/slides-examples/
 data/
 output/
 tmp/

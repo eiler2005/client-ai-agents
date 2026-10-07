@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Original, fictional Cinimex consulting compositions.
+ * Original, fictional consulting compositions with interchangeable style overlays.
  * Run with Node.js 22+: node render_gallery.mjs --out output/gallery
  * No client files, source decks, web assets, or repository code are imported.
  */
@@ -13,16 +13,6 @@ import { inflateRawSync } from 'node:zlib';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const sourceDirectory = path.dirname(fileURLToPath(import.meta.url));
-const tokenPath = path.resolve(sourceDirectory, '../assets/design-tokens.json');
-const tokens = JSON.parse(await fs.readFile(tokenPath, 'utf8'));
-if (tokens.slides?.unit !== 'px' || !tokens.colors || !tokens.slides.font) throw new Error('Invalid slide design tokens');
-const C = Object.freeze(tokens.colors);
-const SIZE = { width: tokens.slides.width, height: tokens.slides.height };
-const FONT = tokens.slides.font;
-const BODY = tokens.slides.body;
-const MIN_BODY = tokens.slides.minBody;
-const TITLE = tokens.slides.title;
-const SOURCE = tokens.slides.source;
 const FICTION = 'ВЫМЫШЛЕННЫЙ ПРИМЕР · ДАННЫЕ ДЛЯ ДЕМОНСТРАЦИИ';
 const CLAIMS = [
   { id: 'Q00', text: 'Срез: конец недели 4.', kind: 'fictional-as-of', value: 4, unit: 'demo-week' },
@@ -42,13 +32,13 @@ const CLAIMS = [
 ];
 
 function parseArgs(argv) {
-  const options = {};
+  const options = { style: 'neutral' };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--help' || arg === '-h') options.help = true;
-    else if (arg === '--out') {
-      if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error('--out requires a directory or .pptx path');
-      options.out = argv[++i];
+    else if (['--out', '--style', '--format-profile'].includes(arg)) {
+      if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error(`${arg} requires a value`);
+      options[{ '--out': 'out', '--style': 'style', '--format-profile': 'formatProfile' }[arg]] = argv[++i];
     } else throw new Error(`Unknown argument: ${arg}`);
   }
   return options;
@@ -59,7 +49,7 @@ async function exists(candidate) {
 }
 
 async function loadArtifactTool() {
-  const override = process.env.CINIMEX_ARTIFACT_TOOL;
+  const override = process.env.CONSULTING_ARTIFACT_TOOL ?? process.env.CINIMEX_ARTIFACT_TOOL;
   const candidates = [];
   if (override) candidates.push(path.resolve(override));
   else {
@@ -80,7 +70,7 @@ async function loadArtifactTool() {
     const artifact = await import(pathToFileURL(entry).href);
     if (!artifact.Presentation || !artifact.PresentationFile) throw new Error(`Invalid artifact-tool entry: ${entry}`);
     const require = createRequire(entry);
-    const { Canvas } = require('skia-canvas');
+    const { Canvas, FontLibrary } = require('skia-canvas');
     let metadata = { name: '@oai/artifact-tool', version: 'unknown' };
     for (const directory of [candidate, path.dirname(path.dirname(entry)), path.dirname(path.dirname(path.dirname(entry)))]) {
       try {
@@ -88,9 +78,9 @@ async function loadArtifactTool() {
         if (possible.name === '@oai/artifact-tool') { metadata = possible; break; }
       } catch { /* Metadata is optional; the API export check above is required. */ }
     }
-    return { ...artifact, Canvas, metadata };
+    return { ...artifact, Canvas, FontLibrary, metadata };
   }
-  throw new Error('Cannot resolve @oai/artifact-tool. Install it or set CINIMEX_ARTIFACT_TOOL to its package directory or ES-module entry.');
+  throw new Error('Cannot resolve @oai/artifact-tool. Install it or set CONSULTING_ARTIFACT_TOOL to its package directory or ES-module entry.');
 }
 
 function outputPaths(value) {
@@ -165,10 +155,25 @@ function inspectPptx(bytes, expectedSlides) {
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   if (options.help) {
-    console.log('Usage: node render_gallery.mjs [--out DIRECTORY|FILE.pptx]\nCreates 3 original fictional editable slides, PNG previews, layout JSON, extracted text and a manifest.\nDependency: @oai/artifact-tool; optional CINIMEX_ARTIFACT_TOOL package directory or module entry.');
+    console.log('Usage: node render_gallery.mjs [--out DIRECTORY|FILE.pptx] [--style neutral|cinimex|PATH] [--format-profile PATH]\nDefault style: neutral. Creates 3 original fictional editable slides, PNG previews, layout JSON, extracted text and a manifest.\nDependency: @oai/artifact-tool; optional CONSULTING_ARTIFACT_TOOL package directory or module entry.');
     return;
   }
-  const { Presentation, PresentationFile, Canvas, metadata } = await loadArtifactTool();
+  const stylePath = ['neutral', 'cinimex'].includes(options.style)
+    ? path.resolve(sourceDirectory, '../assets/styles', `${options.style}.json`)
+    : path.resolve(options.style);
+  const formatPath = options.formatProfile
+    ? path.resolve(options.formatProfile) : path.resolve(sourceDirectory, '../assets/format-profiles.json');
+  const [style, formats] = await Promise.all([stylePath, formatPath].map(async file => JSON.parse(await fs.readFile(file, 'utf8'))));
+  const G = formats.slides, T = style.typography?.slides;
+  if (G?.unit !== 'px' || !T?.font || !style.brand?.slideFooter) throw new Error('Invalid slide format or style profile');
+  const colorRoles = ['ink', 'accent', 'accentText', 'muted', 'surface', 'border', 'background', 'accentSurface', 'baseline'];
+  if (colorRoles.some(role => !/^#[0-9a-f]{6}$/i.test(style.colors?.[role] ?? ''))) throw new Error('Style profile requires semantic hexadecimal color roles');
+  if (![T.body, T.minBody, T.title, T.heading, T.kicker, T.source, T.exceptionRole].every(value => Number.isFinite(value) && value > 0) || T.body < T.minBody) throw new Error('Invalid slide typography');
+  const C = Object.freeze(style.colors), SIZE = { width: G.width, height: G.height };
+  const BODY = T.body, MIN_BODY = T.minBody, TITLE = T.title, SOURCE = T.source, HEADING = T.heading;
+  const { Presentation, PresentationFile, Canvas, FontLibrary, metadata } = await loadArtifactTool();
+  const FONT = [T.font, 'Arial', 'Calibri', 'DejaVu Sans', 'Liberation Sans', 'Noto Sans'].find(font => FontLibrary.has(font));
+  if (!FONT) throw new Error('No supported slide font is available; install a Cyrillic-capable sans-serif font');
   const out = outputPaths(options.out);
   await fs.mkdir(out.directory, { recursive: true });
   await fs.mkdir(out.preview, { recursive: true });
@@ -192,21 +197,21 @@ async function main() {
     return lines;
   }
 
-  function rect(slide, name, x, y, w, h, fill = C.white, stroke = 'none', weight = 0) {
+  function rect(slide, name, x, y, w, h, fill = C.background, stroke = 'none', weight = 0) {
     return slide.shapes.add({ geometry: 'rect', name,
       position: { left: x, top: y, width: w, height: h }, fill,
       line: { style: 'solid', fill: stroke, width: weight } });
   }
 
-  function rule(slide, name, x, y, w, color = C.grid, weight = 1) {
+  function rule(slide, name, x, y, w, color = C.border, weight = 1) {
     return slide.shapes.add({ geometry: 'line', name,
       position: { left: x, top: y, width: w, height: 0 }, fill: 'none',
       line: { style: 'solid', fill: color, width: weight } });
   }
 
-  function text(slide, name, value, x, y, w, h, size = BODY, color = C.navy, bold = false, alignment = 'left', kind = 'body') {
+  function text(slide, name, value, x, y, w, h, size = BODY, color = C.ink, bold = false, alignment = 'left', kind = 'body') {
     const lines = wrap(value, w, size, bold);
-    const estimatedHeight = lines.length * size * 1.18;
+    const estimatedHeight = lines.length * size * T.heightEstimate;
     if (estimatedHeight > h + 2) throw new Error(`${name}: ${lines.length} lines do not fit ${h}px`);
     if (kind === 'body' && size < MIN_BODY) throw new Error(`${name}: body type is below the token minimum`);
     if (x < 0 || y < 0 || x + w > SIZE.width || y + h > SIZE.height) throw new Error(`${name}: object outside canvas`);
@@ -215,7 +220,7 @@ async function main() {
       line: { style: 'solid', fill: 'none', width: 0 } });
     shape.text = lines.join('\n');
     shape.text.style = { fontSize: size, typeface: FONT, color, bold, alignment,
-      verticalAlignment: 'top', wrap: 'none', autoFit: 'none', lineSpacing: 1.0,
+      verticalAlignment: 'top', wrap: 'none', autoFit: 'none', lineSpacing: T.lineSpacing,
       insets: { left: 0, right: 0, top: 0, bottom: 0 } };
     records.at(-1).visible.push({ name, text: value, fontSize: size, kind, bounds: [x, y, w, h], lines: lines.length });
     return shape;
@@ -224,15 +229,15 @@ async function main() {
   function base(id, title, subtitle) {
     const slide = presentation.slides.add();
     records.push({ id, title, visible: [], intentional_overlaps: [] });
-    slide.background.fill = C.white;
-    rect(slide, `${id}-top-rule`, 72, 30, 1136, 3, C.navy);
-    rect(slide, `${id}-orange-rule`, 72, 30, 70, 3, C.orange);
-    text(slide, `${id}-fiction`, FICTION, 72, 40, 860, 22, MIN_BODY - 2, C.muted, true, 'left', 'label');
-    text(slide, `${id}-title`, title, 72, 69, 1136, 47, TITLE, C.navy, true, 'left', 'title');
-    text(slide, `${id}-subtitle`, subtitle, 72, 123, 1136, 49, BODY, C.muted);
-    text(slide, `${id}-footer`, 'Синимекс · оригинальная учебная композиция · источник: вымышленный сценарий',
-      72, 686, 1040, 20, SOURCE, C.muted, false, 'left', 'source');
-    text(slide, `${id}-page`, String(records.length).padStart(2, '0'), 1158, 683, 50, 25, MIN_BODY, C.navy, true, 'right', 'label');
+    slide.background.fill = C.background;
+    rect(slide, `${id}-top-rule`, ...G.chrome.topRule, C.ink);
+    rect(slide, `${id}-accent-rule`, ...G.chrome.accentRule, C.accent);
+    text(slide, `${id}-fiction`, FICTION, ...G.chrome.fiction, T.kicker, C.muted, true, 'left', 'label');
+    text(slide, `${id}-title`, title, ...G.chrome.title, TITLE, C.ink, true, 'left', 'title');
+    text(slide, `${id}-subtitle`, subtitle, ...G.chrome.subtitle, BODY, C.muted);
+    text(slide, `${id}-footer`, style.brand.slideFooter,
+      ...G.chrome.footer, SOURCE, C.muted, false, 'left', 'source');
+    text(slide, `${id}-page`, String(records.length).padStart(2, '0'), ...G.chrome.page, MIN_BODY, C.ink, true, 'right', 'label');
     return slide;
   }
 
@@ -252,41 +257,42 @@ async function main() {
       ['04 · Передача', 'Регламент работы\nи поддержка', 'Проверка ответственных;\nучебный сценарий', 'Владелец сервиса'],
       ['G4 · Принять в сопровождение — критерии {A, B, C, D}', '', '', ''],
     ];
-    const heights = [38, 63, 30, 63, 30, 63, 30, 63, 30];
+    const geo = G.stageGates;
+    const heights = geo.rowHeights;
     const table = slide.tables.add({ rows: values.length, columns: 4,
-      left: 72, top: 178, width: 1136, height: heights.reduce((sum, value) => sum + value, 0),
-      columnWidths: [211, 309, 359, 257], values });
+      left: geo.table[0], top: geo.table[1], width: geo.table[2], height: heights.reduce((sum, value) => sum + value, 0),
+      columnWidths: geo.columnWidths, values });
     table.styleOptions = { headerRow: false, bandedRows: false };
-    table.borders.assign({ style: 'solid', fill: C.grid, color: C.grid, width: 0.7 });
+    table.borders.assign({ style: 'solid', fill: C.border, color: C.border, width: geo.borderWidth });
     table.cells.block({ row: 0, column: 0, rowCount: 9, columnCount: 4 }).assign({
-      margins: { left: 9, right: 9, top: 5, bottom: 4 }, anchor: 'center' });
-    let boundary = 178;
+      margins: geo.cellMargins, anchor: 'center' });
+    let boundary = geo.table[1];
     for (let r = 0; r < values.length; r++) {
       table.rows[r].height = heights[r];
       const gate = r > 0 && r % 2 === 0;
       if (gate) table.merge({ startRow: r, endRow: r, startColumn: 0, endColumn: 3 });
       for (let c = 0; c < 4; c++) {
         const cell = table.getCell(r, c);
-        cell.fill = r === 0 ? C.navy : gate ? C.white : (r === 3 || r === 7) ? C.paper : C.white;
+        cell.fill = r === 0 ? C.ink : gate ? C.background : (r === 3 || r === 7) ? C.surface : C.background;
         cell.text.style = { fontSize: gate ? MIN_BODY : BODY, typeface: FONT,
-          color: r === 0 ? C.white : C.navy, bold: r === 0 || gate || c === 0, lineSpacing: 1.0 };
+          color: r === 0 ? C.background : C.ink, bold: r === 0 || gate || c === 0, lineSpacing: T.lineSpacing };
         if (values[r][c]) records.at(-1).visible.push({ name: `evidence-r${r}-c${c}`, text: values[r][c],
           fontSize: gate ? MIN_BODY : BODY, kind: 'body', lines: values[r][c].split('\n').length });
       }
       if (gate) {
-        rule(slide, `gate-${r / 2}-boundary`, 72, boundary, 1136, C.orange, 1.2);
+        rule(slide, `gate-${r / 2}-boundary`, geo.table[0], boundary, geo.table[2], C.accent, geo.gateRuleWidth);
         const gateClaim = CLAIMS.find(item => item.id === `G${r / 2}`);
         text(slide, `gate-${r / 2}-decision-role`, `Решение: ${gateClaim.decision_role}`,
-          815, boundary + 5, 384, 24, MIN_BODY, C.navy, false, 'right');
-        records.at(-1).intentional_overlaps.push(`Gate ${r / 2}: the orange rule is the boundary of the merged decision row.`);
+          geo.decisionRole.left, boundary + geo.decisionRole.topOffset, geo.decisionRole.width, geo.decisionRole.height, MIN_BODY, C.ink, false, 'right');
+        records.at(-1).intentional_overlaps.push(`Gate ${r / 2}: the accent rule is the boundary of the merged decision row.`);
         records.at(-1).intentional_overlaps.push(`Gate ${r / 2}: deciding-role text occupies the right side of its merged row; it differs from the execution role above.`);
       }
       boundary += heights[r];
     }
     text(slide, 'criteria-labels', 'A — периметр · B — роли и данные · C — испытания · D — сопровождение',
-      72, 599, 1136, 28, BODY, C.navy, true);
+      ...geo.criteria, BODY, C.ink, true);
     text(slide, 'criteria-persistence', 'Критерии сохраняются: каждый набор добавляет условие к предыдущему. Непройденное условие возвращает этап на доработку.',
-      72, 634, 1136, 48, BODY, C.muted);
+      ...geo.persistence, BODY, C.muted);
     slide.speakerNotes.textFrame.setText('Original fictional demonstration, created from scratch. No real client or company performance facts. The four phases use aligned result, evidence and role columns. Gate decisions are placed on the phase boundaries. A=scope agreed; B=roles and data rules agreed; C=tests accepted; D=support arranged. The sets are cumulative logical criteria; their displayed extent conveys no numerical measurement. All acceptance thresholds remain unspecified.');
   }
 
@@ -295,50 +301,51 @@ async function main() {
   {
     const slide = base('executive-status', 'Пилот можно начать после проверки источников',
       'Решение сейчас: назначить владельца данных и согласовать проверку неизвестных случаев.');
+    const geo = G.status;
     text(slide, 'status-as-of', CLAIMS.find(item => item.id === 'Q00').text,
-      958, 40, 250, 23, MIN_BODY, C.muted, false, 'right', 'label');
-    text(slide, 'status-facts-heading', 'Что известно', 72, 184, 630, 31, 22, C.navy, true);
+      ...geo.asOf, MIN_BODY, C.muted, false, 'right', 'label');
+    text(slide, 'status-facts-heading', 'Что известно', ...geo.factsHeading, HEADING, C.ink, true);
     text(slide, 'status-facts', 'Периметр согласован: один тип внутренних запросов.\nРабочий сценарий собран; источники проверены частично.',
-      72, 225, 650, 67, BODY, C.navy);
-    text(slide, 'status-risk-heading', 'Риск и зависимость', 782, 184, 426, 31, 22, C.navy, true);
+      ...geo.facts, BODY, C.ink);
+    text(slide, 'status-risk-heading', 'Риск и зависимость', ...geo.riskHeading, HEADING, C.ink, true);
     text(slide, 'status-risk', 'Риск: нет подтверждённого источника для исключений.\nЗависимость: владелец данных должен разобрать примеры.',
-      782, 225, 426, 93, BODY, C.navy);
-    rule(slide, 'status-content-divider', 72, 320, 1136);
-    text(slide, 'roadmap-heading', 'Проверка смещает прогноз; базовый план виден рядом', 72, 337, 780, 31, 22, C.navy, true);
-    rect(slide, 'baseline-key', 888, 342, 24, 7, C.baseline);
-    text(slide, 'baseline-legend', 'Базовый', 920, 335, 115, 26, MIN_BODY, C.muted);
-    rect(slide, 'forecast-key', 1042, 342, 24, 7, C.orange);
-    text(slide, 'forecast-legend', 'Прогноз', 1074, 335, 134, 26, MIN_BODY, C.navy);
-    const axis = { left: 332, top: 402, width: 816, count: 6 };
+      ...geo.risk, BODY, C.ink);
+    rule(slide, 'status-content-divider', ...geo.contentDivider);
+    text(slide, 'roadmap-heading', 'Проверка смещает прогноз; базовый план виден рядом', ...geo.roadmapHeading, HEADING, C.ink, true);
+    rect(slide, 'baseline-key', ...geo.baselineKey, C.baseline);
+    text(slide, 'baseline-legend', 'Базовый', ...geo.baselineLegend, MIN_BODY, C.muted);
+    rect(slide, 'forecast-key', ...geo.forecastKey, C.accent);
+    text(slide, 'forecast-legend', 'Прогноз', ...geo.forecastLegend, MIN_BODY, C.ink);
+    const axis = { ...geo.axis, count: Math.max(...CLAIMS.filter(item => ['Q01', 'Q02'].includes(item.id)).map(item => item.value)) };
     const tick = index => axis.left + index * axis.width / (axis.count - 1);
-    rule(slide, 'roadmap-axis', axis.left, axis.top, axis.width, C.grid, 1);
-    for (let index = 0; index < 6; index++) {
+    rule(slide, 'roadmap-axis', axis.left, axis.top, axis.width, C.border, 1);
+    for (let index = 0; index < axis.count; index++) {
       const x = tick(index);
-      rect(slide, `roadmap-tick-${index}`, x, axis.top - 4, 1, 146, C.grid);
-      text(slide, `roadmap-week-${index}`, `Нед. ${index + 1}`, x - 29, 374, 70, 23, MIN_BODY, C.muted, false, 'center');
+      rect(slide, `roadmap-tick-${index}`, x, axis.top + geo.tick.topOffset, geo.tick.width, geo.tick.height, C.border);
+      text(slide, `roadmap-week-${index}`, `Нед. ${index + 1}`, x + geo.weekLabel.leftOffset, geo.weekLabel.top, geo.weekLabel.width, geo.weekLabel.height, MIN_BODY, C.muted, false, 'center');
     }
     const tasks = [
-      { label: 'Периметр', y: 416, baseline: [0, 1], forecast: [0, 1] },
-      { label: 'Сборка', y: 461, baseline: [1, 3], forecast: [1, 3] },
-      { label: 'Проверка', y: 506, baseline: [3, 4], forecast: [3, 5] },
+      { label: 'Периметр', y: geo.taskY[0], baseline: [0, 1], forecast: [0, 1] },
+      { label: 'Сборка', y: geo.taskY[1], baseline: [1, 3], forecast: [1, 3] },
+      { label: 'Проверка', y: geo.taskY[2], baseline: [3, CLAIMS.find(item => item.id === 'Q01').value - 1], forecast: [3, CLAIMS.find(item => item.id === 'Q02').value - 1] },
     ];
     for (const [i, task] of tasks.entries()) {
-      text(slide, `roadmap-task-${i}`, task.label, 72, task.y - 1, 226, 30, BODY, C.navy, true);
+      text(slide, `roadmap-task-${i}`, task.label, geo.taskLabel.left, task.y + geo.taskLabel.topOffset, geo.taskLabel.width, geo.taskLabel.height, BODY, C.ink, true);
       for (const [name, interval, color, offset] of [
-        ['baseline', task.baseline, C.baseline, 0], ['forecast', task.forecast, C.orange, 14],
+        ['baseline', task.baseline, C.baseline, geo.bar.baselineOffset], ['forecast', task.forecast, C.accent, geo.bar.forecastOffset],
       ]) {
         rect(slide, `${name}-bar-${i}`, tick(interval[0]), task.y + offset,
-          tick(interval[1]) - tick(interval[0]), 8, color);
+          tick(interval[1]) - tick(interval[0]), geo.bar.height, color);
       }
     }
     text(slide, 'roadmap-proviso', 'Все недели и статусы вымышлены. Прогноз показывает зависимость и не является обязательством по сроку.',
-      72, 554, 1136, 29, MIN_BODY, C.muted);
-    rule(slide, 'status-results-divider', 72, 590, 1136);
-    text(slide, 'recent-heading', 'Недавно получено', 72, 607, 530, 28, 22, C.navy, true);
-    text(slide, 'recent-result', 'Карта запросов и правила передачи эксперту.', 72, 645, 530, 29, BODY, C.navy);
-    text(slide, 'next-heading', 'Следующий результат', 668, 607, 540, 28, 22, C.navy, true);
-    text(slide, 'next-result', 'Протокол проверки; решение о старте пилота.', 668, 645, 540, 29, BODY, C.navy);
-    slide.speakerNotes.textFrame.setText('Original fictional project-status one-pager. Every status and schedule interval is invented for this example. The two bars for each activity share the same six-week axis. Grey is the baseline plan; orange is the current forecast. Scope and build are unchanged; checking extends from week 5 to week 6 because the source owner must resolve unknown cases. This is an explanatory schedule, not a forecast for any actual client. No ROI, savings, acceptance thresholds, budgets or measured effects are claimed.');
+      ...geo.caveat, MIN_BODY, C.muted);
+    rule(slide, 'status-results-divider', ...geo.resultsDivider);
+    text(slide, 'recent-heading', 'Недавно получено', ...geo.recentHeading, HEADING, C.ink, true);
+    text(slide, 'recent-result', 'Карта запросов и правила передачи эксперту.', ...geo.recent, BODY, C.ink);
+    text(slide, 'next-heading', 'Следующий результат', ...geo.nextHeading, HEADING, C.ink, true);
+    text(slide, 'next-result', 'Протокол проверки; решение о старте пилота.', ...geo.next, BODY, C.ink);
+    slide.speakerNotes.textFrame.setText('Original fictional project-status one-pager. Every status and schedule interval is invented for this example. The two bars for each activity share the same six-week axis. Muted bars are the baseline plan; accent bars are the current forecast. Scope and build are unchanged; checking extends from week 5 to week 6 because the source owner must resolve unknown cases. This is an explanatory schedule, not a forecast for any actual client. No ROI, savings, acceptance thresholds, budgets or measured effects are claimed.');
   }
 
   // 3. Paired workflows. Connectors are materialized before visible nodes and
@@ -346,8 +353,9 @@ async function main() {
   {
     const slide = base('paired-workflow', 'Агент готовит ответ; эксперт разбирает пробелы',
       'Одинаковые шаги показывают изменение ролей. Предлагаемый процесс сохраняет остановку при отсутствии основания.');
-    text(slide, 'workflow-current-heading', 'Текущий процесс · демо', 260, 177, 393, 31, 22, C.navy, true);
-    text(slide, 'workflow-proposed-heading', 'Предлагаемый процесс · демо', 760, 177, 448, 31, 22, C.orange, true);
+    const geo = G.workflow;
+    text(slide, 'workflow-current-heading', 'Текущий процесс · демо', ...geo.currentHeading, HEADING, C.ink, true);
+    text(slide, 'workflow-proposed-heading', 'Предлагаемый процесс · демо', ...geo.proposedHeading, HEADING, C.accentText, true);
     const current = [
       ['Сотрудник', 'Передаёт текст запроса эксперту.'],
       ['Эксперт процесса', 'Ищет источник и проверяет\nего применимость.'],
@@ -362,32 +370,32 @@ async function main() {
     ];
     const steps = ['1. Запрос', '2. Основание', '3. Подготовка', '4. Результат'];
     const plans = [];
-    for (const [lane, x, w, copy] of [['current', 260, 393, current], ['proposed', 760, 448, proposed]]) {
-      for (let row = 0; row < 4; row++) plans.push({ name: `${lane}-step-${row}`, lane, row, x, y: 215 + row * 97, w, h: 80, copy: copy[row] });
+    for (const [lane, x, w, copy] of [['current', geo.lanes.current.left, geo.lanes.current.width, current], ['proposed', geo.lanes.proposed.left, geo.lanes.proposed.width, proposed]]) {
+      for (let row = 0; row < 4; row++) plans.push({ name: `${lane}-step-${row}`, lane, row, x, y: geo.rowTop + row * geo.rowPitch, w, h: geo.nodeHeight, copy: copy[row] });
     }
-    plans.push({ name: 'evidence-exception', lane: 'exception', row: 0, x: 760, y: 614, w: 448, h: 50,
+    plans.push({ name: 'evidence-exception', lane: 'exception', row: 0, x: geo.exception[0], y: geo.exception[1], w: geo.exception[2], h: geo.exception[3],
       copy: ['Эксперт: разобрать неизвестное', 'Ответ остановлен до подтверждения.'] });
     const anchors = new Map(plans.map(plan => [plan.name, rect(slide, `anchor-${plan.name}`, plan.x, plan.y, plan.w, plan.h, 'none')]));
     const edgeSpecs = [];
     for (const lane of ['current', 'proposed']) {
       for (let row = 0; row < 3; row++) edgeSpecs.push({ from: `${lane}-step-${row}`, to: `${lane}-step-${row + 1}`,
-        options: { kind: 'straight', fromSide: 'bottom', toSide: 'top', line: { style: 'solid', fill: C.muted, width: 1.4 },
+        options: { kind: 'straight', fromSide: 'bottom', toSide: 'top', line: { style: 'solid', fill: C.muted, width: geo.connectorWidth },
           tail: { type: 'arrow', width: 'sm', length: 'sm' } } });
     }
     edgeSpecs.push({ from: 'proposed-step-1', to: 'evidence-exception',
-      options: { kind: 'elbow', fromSide: 'right', toSide: 'right', line: { style: 'dashed', fill: C.orange, width: 1.6 },
+      options: { kind: 'elbow', fromSide: 'right', toSide: 'right', line: { style: 'dashed', fill: C.accent, width: geo.exceptionConnectorWidth },
         tail: { type: 'arrow', width: 'sm', length: 'sm' } } });
     const edges = edgeSpecs.map(spec => ({ spec, shape: slide.shapes.connect(anchors.get(spec.from), anchors.get(spec.to), spec.options) }));
     const nodes = new Map();
     for (const plan of plans) {
       const exception = plan.lane === 'exception';
       const shape = rect(slide, plan.name, plan.x, plan.y, plan.w, plan.h,
-        exception ? C.paleOrange : C.paper, exception ? C.orange : C.grid, 1);
+        exception ? C.accentSurface : C.surface, exception ? C.accent : C.border, geo.nodeBorderWidth);
       nodes.set(plan.name, shape);
-      text(slide, `${plan.name}-role`, plan.copy[0], plan.x + 13, plan.y + (exception ? 4 : 7), plan.w - 26, 25,
-        exception ? (BODY + MIN_BODY) / 2 : BODY, C.navy, true);
-      text(slide, `${plan.name}-action`, plan.copy[1], plan.x + 13, plan.y + (exception ? 28 : 33), plan.w - 26,
-        exception ? 22 : 46, exception ? MIN_BODY : BODY, C.navy);
+      text(slide, `${plan.name}-role`, plan.copy[0], plan.x + geo.role.leftInset, plan.y + (exception ? geo.role.exceptionTopInset : geo.role.topInset), plan.w - 2 * geo.role.leftInset, geo.role.height,
+        exception ? T.exceptionRole : BODY, C.ink, true);
+      text(slide, `${plan.name}-action`, plan.copy[1], plan.x + geo.action.leftInset, plan.y + (exception ? geo.action.exceptionTopInset : geo.action.topInset), plan.w - 2 * geo.action.leftInset,
+        exception ? geo.action.exceptionHeight : geo.action.height, exception ? MIN_BODY : BODY, C.ink);
       records.at(-1).intentional_overlaps.push(`${plan.name}: role and action text are contained in the workflow node.`);
     }
     for (const { spec, shape } of edges) {
@@ -396,9 +404,9 @@ async function main() {
       shape.sendToBack();
     }
     for (const anchor of anchors.values()) slide.shapes.deleteById(anchor.id);
-    for (let row = 0; row < 4; row++) text(slide, `workflow-step-label-${row}`, steps[row], 72, 215 + row * 97 + 26, 164, 30, BODY, C.muted, true);
-    text(slide, 'workflow-exception-label', 'Нет основания →', 986, 584, 222, 27, MIN_BODY, C.accentText, true);
-    text(slide, 'workflow-current-note', 'Человек выполняет поиск, проверку\nи обработку исключений.', 260, 615, 393, 49, BODY, C.muted);
+    for (let row = 0; row < 4; row++) text(slide, `workflow-step-label-${row}`, steps[row], geo.stepLabel.left, geo.rowTop + row * geo.rowPitch + geo.stepLabel.topOffset, geo.stepLabel.width, geo.stepLabel.height, BODY, C.muted, true);
+    text(slide, 'workflow-exception-label', 'Нет основания →', ...geo.exceptionLabel, MIN_BODY, C.accentText, true);
+    text(slide, 'workflow-current-note', 'Человек выполняет поиск, проверку\nи обработку исключений.', ...geo.currentNote, BODY, C.muted);
     slide.speakerNotes.textFrame.setText('Original fictional current/proposed workflow. Current and proposed paths use the same four aligned steps: request, evidence, preparation, result. The agent finds and checks evidence and prepares an answer. The proposed branch from the evidence step is explicitly dashed and labelled "Нет основания". Missing or inapplicable evidence stops the answer and sends the unknown case to a human expert. The agent is not depicted as inventing evidence. Native PowerPoint connectors remain attached to native nodes. The dashed route means an exception, not a confirmed implementation. The entire workflow is a demonstration, not discovered client architecture.');
   }
 
@@ -407,7 +415,7 @@ async function main() {
     const stem = `slide-${String(index + 1).padStart(2, '0')}`;
     const preview = path.join(out.preview, `${stem}.png`);
     const layout = path.join(out.layout, `${stem}.layout.json`);
-    const png = await presentation.export({ slide, format: 'png', scale: 1.5 });
+    const png = await presentation.export({ slide, format: 'png', scale: G.previewScale });
     await fs.writeFile(preview, new Uint8Array(await png.arrayBuffer()));
     await fs.writeFile(layout, await (await slide.export({ format: 'layout' })).text());
     outputs.push({ slide: index + 1, id: records[index].id, preview, layout });
@@ -424,15 +432,17 @@ async function main() {
     version: 1, generated_at: new Date().toISOString(), state: 'draft', purpose: 'original-fictional-gallery',
     source: { kind: 'original-fictional-examples', external_sources: [], client_files_used: false,
       provenance: 'Written from scratch for this gallery. No imported reference slide, image, client fact, financial effect or outcome.' },
-    generator: { script: 'scripts/render_gallery.mjs', tokens: 'assets/design-tokens.json', tokens_version: tokens.version },
+    generator: { script: 'scripts/render_gallery.mjs',
+      style_profile: { path: stylePath, id: style.id, version: style.version, sha256: createHash('sha256').update(await fs.readFile(stylePath)).digest('hex') },
+      format_profile: { path: formatPath, id: formats.id, version: formats.version, sha256: createHash('sha256').update(await fs.readFile(formatPath)).digest('hex') } },
     claims: CLAIMS,
-    style: { canvas: SIZE, font: FONT, body_px: BODY, minimum_body_px: MIN_BODY, palette: C,
+    style: { id: style.id, canvas: SIZE, typography: T, font_requested: T.font, font: FONT, font_fallback: FONT !== T.font, body_px: BODY, minimum_body_px: MIN_BODY, palette: C,
       route: 'explicit-custom-formatting', reference_deck_used: false },
     runtime: { package: metadata.name, version: metadata.version },
     output: { pptx: out.pptx, text: out.text, slides: outputs },
     checks: { slide_count: 3, all_previews_rendered: true, visible_copy_verified_from_pptx: true,
       editable_native_objects: true, no_slide_images: true, original_fictional_content: true,
-      body_font_minimum_met: true, visual_review: false, visual_review_note: 'Generation does not establish visual approval. Inspect every PNG and record actual QA separately.',
+      body_font_minimum_met: true, font_available_checked: true, visual_review: false, visual_review_note: 'Generation does not establish visual approval. Inspect every PNG and record actual QA separately.',
       powerpoint_opened: false, pdf_built: false },
     native_objects: native.map(({ text: _text, ...item }) => item),
     text_layout_checks: records.map(item => ({ id: item.id, visible: item.visible,
@@ -440,6 +450,7 @@ async function main() {
     sha256: checksums,
     limitations: ['Fictional examples do not establish readiness, acceptance thresholds, schedules or ROI for a real project.',
       'PNG rendering uses artifact-tool; Microsoft PowerPoint application rendering has not been checked.',
+      'PPTX fonts are referenced, not embedded; the manifest records any rendering-font fallback.',
       'The status roadmap uses editable native bars and one shared axis rather than a measured data chart.'],
   };
   await fs.writeFile(out.manifest, `${JSON.stringify(manifest, null, 2)}\n`);

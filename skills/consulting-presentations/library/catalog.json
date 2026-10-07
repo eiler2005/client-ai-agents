@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "updated_on": "2026-10-07",
   "format_note": "Formats describe applicability. Recipe is guidance; example means an executable original example, not a universal finished layout.",
   "sources": [
@@ -106,6 +106,54 @@
       "visual_review": false,
       "url": "https://scrumguides.org/scrum-guide.html",
       "reference": "references/research.md"
+    },
+    {
+      "id": "U5",
+      "kind": "user-reference",
+      "title": "Пересмотр оценки и сопоставление методов",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U6",
+      "kind": "user-reference",
+      "title": "Доступность ресурсов и условные сроки",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U7",
+      "kind": "user-reference",
+      "title": "Стабильная карта покрытия и раскрытие готовности",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U8",
+      "kind": "user-reference",
+      "title": "Диагностическое дерево и исследование",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U9",
+      "kind": "user-reference",
+      "title": "Пошаговая инструкция с аннотированным объектом",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U10",
+      "kind": "user-reference",
+      "title": "Контракт роли и замкнутый цикл улучшений",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
     }
   ],
   "entries": [
@@ -180,7 +228,10 @@
         "прогноз",
         "риск",
         "status",
-        "forecast"
+        "forecast",
+        "сверка оценок",
+        "пересмотр",
+        "estimate"
       ],
       "required_inputs": [
         "дата среза",
@@ -191,10 +242,13 @@
       ],
       "related": [
         "V03",
-        "V07"
+        "V07",
+        "V13"
       ],
       "sources": [
-        "U2"
+        "U2",
+        "U5",
+        "U7"
       ],
       "review_status": "reviewed",
       "implementation_status": "example",
@@ -225,7 +279,9 @@
         "DoR",
         "DoD",
         "AC",
-        "gates"
+        "gates",
+        "взвешенная готовность",
+        "critical exceptions"
       ],
       "required_inputs": [
         "результат этапа",
@@ -238,7 +294,8 @@
       ],
       "sources": [
         "U1",
-        "S1"
+        "S1",
+        "U7"
       ],
       "review_status": "reviewed",
       "implementation_status": "example",
@@ -279,7 +336,8 @@
       "related": [
         "V04",
         "V05",
-        "V12"
+        "V12",
+        "V14"
       ],
       "sources": [
         "R1",
@@ -305,7 +363,9 @@
         "ценность",
         "метрики",
         "pilot",
-        "value"
+        "value",
+        "методы оценки",
+        "estimate reconciliation"
       ],
       "required_inputs": [
         "гипотеза",
@@ -317,7 +377,8 @@
         "V09"
       ],
       "sources": [
-        "R4"
+        "R4",
+        "U5"
       ],
       "review_status": "reviewed",
       "implementation_status": "recipe",
@@ -347,7 +408,8 @@
       ],
       "related": [
         "V02",
-        "V08"
+        "V08",
+        "V13"
       ],
       "sources": [
         "S1"
@@ -371,7 +433,9 @@
         "зависимости",
         "сроки",
         "roadmap",
-        "dependency"
+        "dependency",
+        "доступность ресурсов",
+        "capacity"
       ],
       "required_inputs": [
         "работы",
@@ -383,7 +447,8 @@
         "V07"
       ],
       "sources": [
-        "U2"
+        "U2",
+        "U6"
       ],
       "review_status": "reviewed",
       "implementation_status": "recipe",
@@ -404,7 +469,10 @@
         "полномочия",
         "контроль",
         "architecture",
-        "control"
+        "control",
+        "контракт роли",
+        "компетенции",
+        "role contract"
       ],
       "required_inputs": [
         "компоненты или роли",
@@ -415,13 +483,18 @@
       "related": [
         "V05",
         "V06",
-        "V08"
+        "V08",
+        "V13",
+        "V15"
       ],
       "sources": [
         "U3",
         "R5",
         "R6",
-        "R7"
+        "R7",
+        "U7",
+        "U9",
+        "U10"
       ],
       "review_status": "reviewed",
       "implementation_status": "recipe",
@@ -441,7 +514,11 @@
         "декомпозиция",
         "ритм",
         "backlog",
-        "cadence"
+        "cadence",
+        "исследование",
+        "цикл улучшений",
+        "capacity",
+        "spike"
       ],
       "required_inputs": [
         "уровни",
@@ -452,10 +529,16 @@
       ],
       "related": [
         "V10",
-        "V11"
+        "V11",
+        "V14",
+        "V15"
       ],
       "sources": [
-        "U4"
+        "U4",
+        "U6",
+        "U8",
+        "U9",
+        "U10"
       ],
       "review_status": "reviewed",
       "implementation_status": "recipe",
@@ -881,6 +964,109 @@
       "sources": [
         "R3"
       ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V13",
+      "title": "Карта покрытия с постоянной геометрией",
+      "question": "Где изменилось состояние тех же функций и чем подтверждено покрытие?",
+      "tags": [
+        "карта покрытия",
+        "готовность",
+        "coverage map",
+        "stable geometry"
+      ],
+      "required_inputs": [
+        "стабильные объекты и ID",
+        "срезы и версии",
+        "определения статусов",
+        "свидетельства и неизвестное"
+      ],
+      "related": [
+        "M03",
+        "M07",
+        "M09"
+      ],
+      "sources": [
+        "U7"
+      ],
+      "kind": "visual",
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V14",
+      "title": "Диагностическое дерево и следующий шаг",
+      "question": "Какой следующий шаг следует из подтверждённого, пограничного или неизвестного ответа?",
+      "tags": [
+        "дерево решений",
+        "диагностика",
+        "исследование",
+        "decision tree"
+      ],
+      "required_inputs": [
+        "вопросы с критериями",
+        "подписанные ветви",
+        "действия и результаты",
+        "выход на уточнение",
+        "критерий остановки"
+      ],
+      "related": [
+        "M05",
+        "M10"
+      ],
+      "sources": [
+        "U8"
+      ],
+      "kind": "visual",
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V15",
+      "title": "Действие, выноска и подтверждение результата",
+      "question": "Как адресат найдёт нужный объект, выполнит действие и проверит результат?",
+      "tags": [
+        "инструкция",
+        "пошагово",
+        "выноски",
+        "annotated screenshot",
+        "instruction"
+      ],
+      "required_inputs": [
+        "необходимые шаги",
+        "целевой объект и версия",
+        "роль",
+        "ожидаемый результат",
+        "способ проверки"
+      ],
+      "related": [
+        "M09",
+        "M10"
+      ],
+      "sources": [
+        "U9"
+      ],
+      "kind": "visual",
       "review_status": "reviewed",
       "implementation_status": "recipe",
       "formats": [

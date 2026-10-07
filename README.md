@@ -53,8 +53,9 @@ PDF, которые не стыдно отдать заказчику: отчё�
 | Стандарт презентаций | [docs/PRESENTATION.md](docs/PRESENTATION.md) |
 | Структура клиентской презентации по слайдам | [docs/PRESENTATION_STRUCTURE.md](docs/PRESENTATION_STRUCTURE.md) |
 | Общая база для презентаций, документов и PDF | [Скилл, библиотека и процесс](docs/CONSULTING_ARTIFACTS.md) |
-| Пополняемый каталог управления и визуализации | [10 управленческих шаблонов и 12 композиций](skills/cinimex-consulting/library/catalog.json) |
+| Пополняемый каталог управления и визуализации | [10 управленческих шаблонов и 15 композиций](skills/consulting-presentations/library/catalog.json) |
 | Стиль Cinimex Consulting | [Эталон и сборка](templates/presentations/cinimex-consulting/README.md) |
+| Локальные исходные примеры | [Полный разбор и хранение вне Git](reference-materials/README.md) |
 | Идеи развития презентаций | [Исследование McKinsey, Bain, BCG](docs/PRESENTATION_RESEARCH.md) |
 
 Ещё три страницы собираются командой `assess build` и в репозиторий не коммитятся:

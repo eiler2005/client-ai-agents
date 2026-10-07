@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "id": "cinimex",
+  "name": "Cinimex Consulting v2",
+  "provenance": "Working project style; not a published corporate brand book. Explicit client templates take precedence.",
+  "colors": {
+    "ink": "#071D33",
+    "accent": "#F28A20",
+    "accentText": "#9B4F10",
+    "muted": "#536777",
+    "surface": "#F4F7FA",
+    "border": "#DDE5EB",
+    "background": "#FFFFFF",
+    "accentSurface": "#FFF2E5",
+    "baseline": "#A5B2BD"
+  },
+  "typography": {
+    "slides": {
+      "font": "Calibri", "body": 19, "minBody": 17, "title": 34,
+      "heading": 22, "kicker": 15, "source": 12, "exceptionRole": 18,
+      "lineSpacing": 1.0, "heightEstimate": 1.18
+    },
+    "document": {
+      "font": "DejaVu Sans", "body": 11, "leading": 15, "title": 23,
+      "heading": 15, "source": 8, "titleLeading": 1.22, "headingLeading": 1.25
+    }
+  },
+  "brand": {
+    "slideFooter": "Синимекс · оригинальная учебная композиция · источник: вымышленный сценарий",
+    "documentFooter": "Синимекс | Источник: оригинальный вымышленный сценарий",
+    "author": "Синимекс"
+  }
+}

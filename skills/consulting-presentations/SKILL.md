@@ -1,12 +1,13 @@
 ---
-name: cinimex-consulting
-description: Create and review consulting materials in Cinimex style using a growing management and visualization library. Use for client presentations, executive briefs, project status, concept/specification documents and PDF reports; choose evidence and decision templates first, then adapt their visual relationships to slides or document pages.
+name: consulting-presentations
+description: Create and review consulting presentations, executive briefs, project status, concept/specification documents and PDF reports using a growing management and visualization library. Choose evidence and decision templates first, adapt their visual relationships to the output format, then apply an independent brand or neutral style.
 ---
 
-# Cinimex Consulting
+# Consulting Presentations
 
 Общая основа для презентаций, документов и PDF: управленческие шаблоны,
-визуальные отношения, стиль и источники. Единица базы — **содержательный блок**,
+визуальные отношения и источники с независимо выбираемым оформлением.
+Единица базы — **содержательный блок**,
 который помогает читателю понять ситуацию или принять решение. Его можно
 разместить на слайде, странице или в нескольких разделах документа.
 
@@ -28,7 +29,9 @@ description: Create and review consulting materials in Cinimex style using a gro
    [library-workflow.md](references/library-workflow.md), сохраняя статус кандидата.
    Уже прочитанные и не изменившиеся записи можно использовать повторно в этой задаче.
 3. Прочитай нужную ветку [format-adapters.md](references/format-adapters.md)
-   и [brand-and-rendering.md](references/brand-and-rendering.md).
+   и [styles-and-rendering.md](references/styles-and-rendering.md).
+   Выбери геометрию формата, затем отдельный стиль: нейтральный, проектный
+   или предоставленный пользователем. Цвета и бренд не входят в шаблоны M/V.
    Явный пользовательский шаблон и правила существующего генератора приоритетны.
 4. Подготовь содержание, проверь основания и смысл отношений, собери заказанный
    формат. Перед передачей используй [review.md](references/review.md).
@@ -84,16 +87,14 @@ ID. Совпадение числа страниц и координат не я
 
 ## Источники, форматы и переносимость
 
-В этом репозитории для документов учитывай docs/REPORT.md и docs/PROPOSAL.md,
-для презентаций — docs/PRESENTATION.md, docs/PRESENTATION_STRUCTURE.md
-и docs/PRESENTATION_VISUAL_STANDARD.md. Существующие схемы и генераторы отвечают
+Учитывай правила вызывающего проекта и его существующий генератор. Они отвечают
 за обязательные разделы, расчёты, источники, конфиденциальность и проверки;
 этот скилл помогает выбрать рассказ и применимую визуализацию.
 
-Факты Синимекс берутся из src/content/company.yaml по ID, источнику и дате.
-Методика — method, этапы внедрения — delivery, контакты — contacts.
-В другом проекте используй предоставленный профиль компании; отсутствующие
-утверждения не восполняй памятью модели. Относительные ресурсы внутри скилла
+Факты компании берутся из предоставленного профиля по источнику и дате;
+отсутствующие утверждения не восполняй памятью модели. Интеграция этого
+репозитория описана в [project-integration.md](references/project-integration.md).
+Относительные ресурсы внутри скилла
 переносятся вместе с ним; пути к данным проекта задаются вызывающим процессом.
 
 PPTX собирай через доступный скилл Presentations; DOCX — через Documents;
@@ -101,17 +102,19 @@ PPTX собирай через доступный скилл Presentations; DOCX
 Для Markdown используй запрошенный файловый формат. Сохраняй текст, таблицы
 и простые схемы редактируемыми. Полная растровая картинка не заменяет страницу.
 
-База содержит 10 управленческих шаблонов и 12 визуальных рецептов. Статус
+Количество и состав шаблонов указаны в каталоге. Статус
 реализации и фактически проверенные форматы указаны отдельно в каталоге.
 Собственные примеры собираются без клиентских данных:
 
-    node <skill-dir>/scripts/render_gallery.mjs --out <output-dir>
-    python3 <skill-dir>/scripts/render_document_example.py --out <output-dir>
+    node <skill-dir>/scripts/render_gallery.mjs --style neutral --out <output-dir>
+    python3 <skill-dir>/scripts/render_document_example.py --style neutral --out <output-dir>
     python3 <skill-dir>/scripts/library.py check
 
-Общие цвета и раздельные параметры слайда/A4 —
-[design-tokens.json](assets/design-tokens.json). Они служат исходным стилем новых
-свободных материалов; существующий PDF-renderer не заменяется этими настройками.
+Геометрия слайда/A4 — [format-profiles.json](assets/format-profiles.json).
+Палитра, шрифты и бренд — [styles/](assets/styles/): `neutral` по умолчанию,
+`cinimex` при явном выборе. Один M/V и один профиль можно оформить разными стилями.
+Эти настройки предназначены для свободных примеров; существующий renderer
+не заменяется ими. При смене шрифта снова проверь переносы и читаемость.
 Проверка примера в PPTX не подтверждает DOCX или PDF.
 
 После сборки прочитай извлечённый текст и просмотри каждую страницу или слайд.

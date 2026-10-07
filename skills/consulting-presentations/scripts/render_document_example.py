@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build an original fictional A4 management example with portable Cinimex tokens."""
+"""Build an original fictional A4 example with interchangeable style overlays."""
 
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ from reportlab.platypus import (
 )
 
 PACK_DIR = Path(__file__).resolve().parents[1]
-TOKEN_PATH = PACK_DIR / "assets" / "design-tokens.json"
+FORMAT_PATH = PACK_DIR / "assets" / "format-profiles.json"
 FICTION = "ВЫМЫШЛЕННЫЙ ПРИМЕР · ДАННЫЕ ДЛЯ ДЕМОНСТРАЦИИ"
 CLAIMS = [
     {
@@ -305,7 +305,7 @@ def resolve_fonts(font_dir: Path | None, preferred: str) -> dict[str, str]:
 
 
 def register_fonts(fonts: dict[str, str], copy: list[str]) -> None:
-    for alias, key in [("CinimexRegular", "regular"), ("CinimexBold", "bold")]:
+    for alias, key in [("ConsultingRegular", "regular"), ("ConsultingBold", "bold")]:
         font = TTFont(alias, fonts[key])
         pdfmetrics.registerFont(font)
         missing = sorted(
@@ -316,60 +316,73 @@ def register_fonts(fonts: dict[str, str], copy: list[str]) -> None:
             codes = ", ".join(f"{character!r} U+{ord(character):04X}" for character in missing)
             raise RuntimeError(f"Font {fonts[key]} lacks required glyphs: {codes}")
     pdfmetrics.registerFontFamily(
-        "CinimexRegular", normal="CinimexRegular", bold="CinimexBold", italic="CinimexRegular"
+        "ConsultingRegular",
+        normal="ConsultingRegular",
+        bold="ConsultingBold",
+        italic="ConsultingRegular",
     )
 
 
 class Roadmap(Flowable):
     """Native PDF vectors with one six-week axis for baseline and forecast."""
 
-    def __init__(self, width: float, tokens: dict, expected: list[str]):
+    def __init__(self, width: float, profiles: dict, expected: list[str]):
         super().__init__()
-        self.width, self.height = width, 144
-        self.tokens, self.expected = tokens, expected
+        self.width, self.height = width, profiles["document"]["roadmap"]["height"]
+        self.profiles, self.expected = profiles, expected
 
     def draw(self) -> None:
         canvas = self.canv
-        palette, doc = self.tokens["colors"], self.tokens["document"]
-        left, right = 112, self.width - 10
+        palette, doc = self.profiles["colors"], self.profiles["document"]
+        geo = doc["roadmap"]
+        left, right = geo["axisLeft"], self.width - geo["rightInset"]
         week_count = max(CLAIM["Q01"]["value"], CLAIM["Q02"]["value"])
 
         def tick(week):
             return left + (week - 1) * (right - left) / (week_count - 1)
 
-        canvas.setFont("CinimexRegular", doc["body"])
+        canvas.setFont("ConsultingRegular", doc["body"])
         for label, color, x in [
-            ("Базовый", palette["baseline"], 0),
-            ("Прогноз", palette["orange"], 150),
+            ("Базовый", palette["baseline"], geo["legendX"][0]),
+            ("Прогноз", palette["accent"], geo["legendX"][1]),
         ]:
             canvas.setFillColor(colors.HexColor(color))
-            canvas.rect(x, 131, 16, 4, fill=1, stroke=0)
-            canvas.setFillColor(colors.HexColor(palette["navy"]))
-            canvas.drawString(x + 23, 128, label)
+            canvas.rect(
+                x, geo["legendY"], geo["legendWidth"], geo["legendHeight"], fill=1, stroke=0
+            )
+            canvas.setFillColor(colors.HexColor(palette["ink"]))
+            canvas.drawString(x + geo["legendTextOffset"], geo["legendTextY"], label)
             self.expected.append(label)
-        canvas.setStrokeColor(colors.HexColor(palette["grid"]))
-        canvas.setLineWidth(0.5)
-        canvas.line(left, 100, right, 100)
-        canvas.setFont("CinimexRegular", doc["source"])
+        canvas.setStrokeColor(colors.HexColor(palette["border"]))
+        canvas.setLineWidth(geo["ruleWidth"])
+        canvas.line(left, geo["axisY"], right, geo["axisY"])
+        canvas.setFont("ConsultingRegular", doc["source"])
         for week in range(1, week_count + 1):
             x = tick(week)
-            canvas.line(x, 12, x, 100)
+            canvas.line(x, geo["gridBottom"], x, geo["axisY"])
             canvas.setFillColor(colors.HexColor(palette["muted"]))
             label = f"Нед. {week}"
-            canvas.drawCentredString(x, 109, label)
+            canvas.drawCentredString(x, geo["weekLabelY"], label)
             self.expected.append(label)
-        for item, y in zip(CONTENT["status"]["roadmap"], [78, 49, 20], strict=True):
-            canvas.setFont("CinimexBold", doc["body"])
-            canvas.setFillColor(colors.HexColor(palette["navy"]))
+        for item, y in zip(CONTENT["status"]["roadmap"], geo["taskY"], strict=True):
+            canvas.setFont("ConsultingBold", doc["body"])
+            canvas.setFillColor(colors.HexColor(palette["ink"]))
             canvas.drawString(0, y, item["activity"])
             self.expected.append(item["activity"])
             for kind, color, offset in [
-                ("baseline", palette["baseline"], 4),
-                ("forecast", palette["orange"], -5),
+                ("baseline", palette["baseline"], geo["baselineOffset"]),
+                ("forecast", palette["accent"], geo["forecastOffset"]),
             ]:
                 start, end = item[kind]
                 canvas.setFillColor(colors.HexColor(color))
-                canvas.rect(tick(start), y + offset, tick(end) - tick(start), 4, fill=1, stroke=0)
+                canvas.rect(
+                    tick(start),
+                    y + offset,
+                    tick(end) - tick(start),
+                    geo["barHeight"],
+                    fill=1,
+                    stroke=0,
+                )
 
 
 def markdown() -> str:
@@ -470,67 +483,68 @@ def markdown() -> str:
     return "\n".join(lines)
 
 
-def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
-    doc = tokens["document"]
-    palette = {key: colors.HexColor(value) for key, value in tokens["colors"].items()}
+def build_pdf(out: Path, profiles: dict, expected: list[str]) -> Path:
+    doc = profiles["document"]
+    palette = {key: colors.HexColor(value) for key, value in profiles["colors"].items()}
     margin = doc["margin"]
+    spacing, paragraph_geo, table_geo = doc["spacing"], doc["paragraph"], doc["table"]
     page_width, page_height = A4
     width = page_width - 2 * margin
     styles = {
         "body": ParagraphStyle(
             "Body",
-            fontName="CinimexRegular",
+            fontName="ConsultingRegular",
             fontSize=doc["body"],
             leading=doc["leading"],
-            textColor=palette["navy"],
-            spaceAfter=7,
+            textColor=palette["ink"],
+            spaceAfter=paragraph_geo["bodyAfter"],
         ),
         "title": ParagraphStyle(
             "Title",
-            fontName="CinimexBold",
+            fontName="ConsultingBold",
             fontSize=doc["title"],
-            leading=doc["title"] * 1.22,
-            textColor=palette["navy"],
-            spaceAfter=13,
+            leading=doc["title"] * doc["titleLeading"],
+            textColor=palette["ink"],
+            spaceAfter=paragraph_geo["titleAfter"],
         ),
         "heading": ParagraphStyle(
             "Heading",
-            fontName="CinimexBold",
+            fontName="ConsultingBold",
             fontSize=doc["heading"],
-            leading=doc["heading"] * 1.25,
-            textColor=palette["navy"],
-            spaceBefore=8,
-            spaceAfter=9,
+            leading=doc["heading"] * doc["headingLeading"],
+            textColor=palette["ink"],
+            spaceBefore=paragraph_geo["headingBefore"],
+            spaceAfter=paragraph_geo["headingAfter"],
         ),
         "decision": ParagraphStyle(
             "Decision",
-            fontName="CinimexBold",
+            fontName="ConsultingBold",
             fontSize=doc["body"],
             leading=doc["leading"],
             textColor=palette["accentText"],
-            spaceAfter=13,
+            spaceAfter=paragraph_geo["decisionAfter"],
         ),
         "cell": ParagraphStyle(
             "Cell",
-            fontName="CinimexRegular",
+            fontName="ConsultingRegular",
             fontSize=doc["body"],
             leading=doc["leading"],
-            textColor=palette["navy"],
+            textColor=palette["ink"],
         ),
         "cell_header": ParagraphStyle(
             "CellHeader",
-            fontName="CinimexBold",
+            fontName="ConsultingBold",
             fontSize=doc["body"],
             leading=doc["leading"],
-            textColor=palette["white"],
+            textColor=palette["background"],
         ),
         "muted": ParagraphStyle(
             "Muted",
-            fontName="CinimexRegular",
+            fontName="ConsultingRegular",
             fontSize=doc["body"],
             leading=doc["leading"],
             textColor=palette["muted"],
-            spaceAfter=7,
+            spaceAfter=paragraph_geo["bodyAfter"],
         ),
     }
 
@@ -541,36 +555,49 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
 
     def standard_table(values: list[list], widths: list[float], header: bool = True) -> Table:
         if len(widths) > doc["maxTableColumns"]:
-            raise ValueError("Table exceeds the document token column limit")
+            raise ValueError("Table exceeds the document format column limit")
         table = Table(values, colWidths=widths, hAlign="LEFT", repeatRows=1 if header else 0)
         table.setStyle(
             TableStyle(
                 [
                     ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 7),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 7),
-                    ("TOPPADDING", (0, 0), (-1, -1), 9),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 9),
-                    ("LINEBELOW", (0, 0), (-1, -1), 0.45, palette["grid"]),
+                    ("LEFTPADDING", (0, 0), (-1, -1), table_geo["paddingHorizontal"]),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), table_geo["paddingHorizontal"]),
+                    ("TOPPADDING", (0, 0), (-1, -1), table_geo["paddingVertical"]),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), table_geo["paddingVertical"]),
+                    ("LINEBELOW", (0, 0), (-1, -1), table_geo["ruleWidth"], palette["border"]),
                 ]
             )
         )
         if header:
-            table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), palette["navy"])]))
+            table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), palette["ink"])]))
         return table
 
     def chrome(canvas, pdf_doc) -> None:
         canvas.saveState()
-        canvas.setStrokeColor(palette["navy"])
-        canvas.setLineWidth(1.2)
-        canvas.line(margin, page_height - 31, page_width - margin, page_height - 31)
-        canvas.setStrokeColor(palette["orange"])
-        canvas.line(margin, page_height - 31, margin + 42, page_height - 31)
+        geo = doc["chrome"]
+        canvas.setFillColor(palette["background"])
+        canvas.rect(0, 0, page_width, page_height, fill=1, stroke=0)
+        canvas.setStrokeColor(palette["ink"])
+        canvas.setLineWidth(geo["ruleWidth"])
+        canvas.line(
+            margin,
+            page_height - geo["ruleTopOffset"],
+            page_width - margin,
+            page_height - geo["ruleTopOffset"],
+        )
+        canvas.setStrokeColor(palette["accent"])
+        canvas.line(
+            margin,
+            page_height - geo["ruleTopOffset"],
+            margin + geo["accentLength"],
+            page_height - geo["ruleTopOffset"],
+        )
         canvas.setFillColor(palette["muted"])
-        canvas.setFont("CinimexRegular", doc["source"])
-        canvas.drawString(margin, page_height - 47, FICTION)
-        canvas.drawString(margin, 26, "Синимекс | Источник: оригинальный вымышленный сценарий")
-        canvas.drawRightString(page_width - margin, 26, str(pdf_doc.page))
+        canvas.setFont("ConsultingRegular", doc["source"])
+        canvas.drawString(margin, page_height - geo["fictionTopOffset"], FICTION)
+        canvas.drawString(margin, geo["footerY"], profiles["brand"]["documentFooter"])
+        canvas.drawRightString(page_width - margin, geo["footerY"], str(pdf_doc.page))
         canvas.restoreState()
 
     story = []
@@ -592,13 +619,15 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
             ],
         ]
     ]
-    status_table = standard_table(status_columns, [width * 0.49, width * 0.51], header=False)
+    status_table = standard_table(
+        status_columns, [width * ratio for ratio in doc["columns"]["status"]], header=False
+    )
     story.extend(
         [
             status_table,
-            Spacer(1, 6),
+            Spacer(1, spacing["beforeRoadmap"]),
             paragraph(status["roadmap_title"], "heading"),
-            Roadmap(width, tokens, expected),
+            Roadmap(width, profiles, expected),
             paragraph(status["roadmap_caveat"], "muted"),
         ]
     )
@@ -608,14 +637,21 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
             [paragraph("Следующий результат", "heading"), paragraph(status["next"])],
         ]
     ]
-    story.extend([standard_table(results, [width * 0.49, width * 0.51], header=False), PageBreak()])
+    story.extend(
+        [
+            standard_table(
+                results, [width * ratio for ratio in doc["columns"]["status"]], header=False
+            ),
+            PageBreak(),
+        ]
+    )
 
     stages = CONTENT["stages"]
     story.extend(
         [
             paragraph(stages["title"], "title"),
             paragraph(stages["intro"], "muted"),
-            Spacer(1, 7),
+            Spacer(1, spacing["beforeTable"]),
         ]
     )
     rows = [
@@ -629,19 +665,25 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
             [paragraph(row[key], "cell") for key in ["stage", "result", "evidence", "role"]]
         )
         rows.append([paragraph(gate_text(row["gate"]), "decision"), "", "", ""])
-    stage_table = standard_table(rows, [width * 0.22, width * 0.24, width * 0.29, width * 0.25])
+    stage_table = standard_table(rows, [width * ratio for ratio in doc["columns"]["stages"]])
     gate_commands = []
     for row in range(2, 9, 2):
         gate_commands += [
             ("SPAN", (0, row), (-1, row)),
-            ("LINEABOVE", (0, row), (-1, row), 0.8, palette["orange"]),
-            ("TOPPADDING", (0, row), (-1, row), 5),
-            ("BOTTOMPADDING", (0, row), (-1, row), 5),
+            ("LINEABOVE", (0, row), (-1, row), table_geo["gateRuleWidth"], palette["accent"]),
+            ("TOPPADDING", (0, row), (-1, row), table_geo["gatePadding"]),
+            ("BOTTOMPADDING", (0, row), (-1, row), table_geo["gatePadding"]),
         ]
     for row in [3, 7]:
-        gate_commands.append(("BACKGROUND", (0, row), (-1, row), palette["paper"]))
+        gate_commands.append(("BACKGROUND", (0, row), (-1, row), palette["surface"]))
     stage_table.setStyle(TableStyle(gate_commands))
-    story.extend([stage_table, Spacer(1, 11), paragraph("Накопление критериев", "heading")])
+    story.extend(
+        [
+            stage_table,
+            Spacer(1, spacing["afterStages"]),
+            paragraph("Накопление критериев", "heading"),
+        ]
+    )
     criteria = " · ".join(f"{key} - {value}" for key, value in stages["criteria"].items())
     story.extend([paragraph(criteria), paragraph(stages["persistence"], "muted"), PageBreak()])
 
@@ -650,7 +692,7 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
         [
             paragraph(workflow["title"], "title"),
             paragraph(workflow["intro"], "muted"),
-            Spacer(1, 7),
+            Spacer(1, spacing["beforeTable"]),
         ]
     )
     rows = [
@@ -669,8 +711,8 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
         )
     story.extend(
         [
-            standard_table(rows, [width * 0.17, width * 0.415, width * 0.415]),
-            Spacer(1, 14),
+            standard_table(rows, [width * ratio for ratio in doc["columns"]["workflow"]]),
+            Spacer(1, spacing["beforeException"]),
         ]
     )
     story.append(
@@ -689,10 +731,10 @@ def build_pdf(out: Path, tokens: dict, expected: list[str]) -> Path:
         pagesize=A4,
         leftMargin=margin,
         rightMargin=margin,
-        topMargin=68,
-        bottomMargin=45,
+        topMargin=doc["topMargin"],
+        bottomMargin=doc["bottomMargin"],
         title="Сервис внутренних запросов - вымышленный пример",
-        author="Синимекс",
+        author=profiles["brand"]["author"],
         subject="Оригинальная демонстрация решений, этапов и ролей",
     )
     pdf_doc.build(story, onFirstPage=chrome, onLaterPages=chrome)
@@ -705,16 +747,49 @@ def main() -> None:
     parser.add_argument(
         "--font-dir", type=Path, help="Directory containing Cyrillic regular/bold TTF fonts"
     )
+    parser.add_argument(
+        "--style",
+        default="neutral",
+        help="neutral, cinimex or a style JSON path (default: neutral)",
+    )
+    parser.add_argument("--format-profile", type=Path, default=FORMAT_PATH)
     args = parser.parse_args()
-    tokens = json.loads(TOKEN_PATH.read_text(encoding="utf-8"))
-    doc = tokens["document"]
+    style_path = (
+        PACK_DIR / "assets" / "styles" / f"{args.style}.json"
+        if args.style in {"neutral", "cinimex"}
+        else Path(args.style)
+    ).resolve()
+    format_path = args.format_profile.resolve()
+    style = json.loads(style_path.read_text(encoding="utf-8"))
+    formats = json.loads(format_path.read_text(encoding="utf-8"))
+    required_colors = {
+        "ink",
+        "accent",
+        "accentText",
+        "muted",
+        "surface",
+        "border",
+        "background",
+        "accentSurface",
+        "baseline",
+    }
+    if not required_colors <= style.get("colors", {}).keys() or any(
+        not re.fullmatch(r"#[0-9a-fA-F]{6}", style["colors"][role]) for role in required_colors
+    ):
+        raise ValueError("Style profile requires semantic hexadecimal color roles")
+    profiles = {
+        "document": {**formats["document"], **style["typography"]["document"]},
+        "colors": style["colors"],
+        "brand": style["brand"],
+    }
+    doc = profiles["document"]
     if doc["page"] != "A4" or doc["orientation"] != "portrait" or doc["unit"] != "pt":
-        raise ValueError("This document example requires A4 portrait document tokens in points")
+        raise ValueError("This document example requires A4 portrait document format in points")
     fonts = resolve_fonts(args.font_dir, doc["font"])
     copy = strings(CONTENT) + strings(CLAIMS) + [FICTION]
     copy += [gate_text(gate) for gate in ["G1", "G2", "G3", "G4"]]
     copy += [
-        "Синимекс | Источник: оригинальный вымышленный сценарий",
+        profiles["brand"]["documentFooter"],
         "0123456789",
         "Базовый",
         "Прогноз",
@@ -736,7 +811,7 @@ def main() -> None:
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     expected = []
-    pdf = build_pdf(out, tokens, expected)
+    pdf = build_pdf(out, profiles, expected)
     md = out / "consulting-document-example.md"
     md.write_text(markdown(), encoding="utf-8")
     source = out / "consulting-document-example.source.json"
@@ -775,7 +850,7 @@ def main() -> None:
     previews = []
     if renderer:
         subprocess.run(
-            [renderer, "-r", "144", "-png", str(pdf), str(preview / "page")],
+            [renderer, "-r", str(doc["previewDpi"]), "-png", str(pdf), str(preview / "page")],
             check=True,
             capture_output=True,
             text=True,
@@ -791,8 +866,18 @@ def main() -> None:
         "purpose": "original-fictional-A4-document",
         "generator": {
             "script": "scripts/render_document_example.py",
-            "tokens": "assets/design-tokens.json",
-            "tokens_version": tokens["version"],
+            "style_profile": {
+                "path": str(style_path),
+                "id": style["id"],
+                "version": style["version"],
+                "sha256": hashlib.sha256(style_path.read_bytes()).hexdigest(),
+            },
+            "format_profile": {
+                "path": str(format_path),
+                "id": formats["id"],
+                "version": formats["version"],
+                "sha256": hashlib.sha256(format_path.read_bytes()).hexdigest(),
+            },
         },
         "source": {
             "kind": "original-fictional-examples",
@@ -802,8 +887,10 @@ def main() -> None:
         },
         "claims": CLAIMS,
         "style": {
-            "tokens": doc,
-            "palette": tokens["colors"],
+            "id": style["id"],
+            "typography": style["typography"]["document"],
+            "format": formats["document"],
+            "palette": profiles["colors"],
             "font_requested": doc["font"],
             "font_resolved": fonts,
             "font_fallback": fonts["family"] != doc["font"],
