@@ -1,0 +1,894 @@
+{
+  "version": "1.0.0",
+  "updated_on": "2026-10-07",
+  "format_note": "Formats describe applicability. Recipe is guidance; example means an executable original example, not a universal finished layout.",
+  "sources": [
+    {
+      "id": "U1",
+      "kind": "user-reference",
+      "title": "Жизненный цикл и критерии готовности",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U2",
+      "kind": "user-reference",
+      "title": "Статус проекта и общий календарь",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U3",
+      "kind": "user-reference",
+      "title": "Архитектура и связанный реестр проблем",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "U4",
+      "kind": "user-reference",
+      "title": "Декомпозиция и рабочий ритм",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R1",
+      "kind": "public-research",
+      "title": "McKinsey: Seizing the agentic AI advantage, Exhibits 3–4",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R2",
+      "kind": "public-research",
+      "title": "Bain: Technology Report 2025, PDF p.28 / Figure 3",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.bain.com/globalassets/noindex/2025/bain_report_technology_report_2025.pdf",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R3",
+      "kind": "public-research",
+      "title": "Bain: Technology Report 2025, PDF p.29 / Figure 4",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.bain.com/globalassets/noindex/2025/bain_report_technology_report_2025.pdf",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R4",
+      "kind": "public-research",
+      "title": "Bain: Technology Report 2025, PDF p.68 / Figure 2",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.bain.com/globalassets/noindex/2025/bain_report_technology_report_2025.pdf",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R5",
+      "kind": "public-research",
+      "title": "Bain: Technology Report 2025, PDF p.72 / Figure 1",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.bain.com/globalassets/noindex/2025/bain_report_technology_report_2025.pdf",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R6",
+      "kind": "public-research",
+      "title": "BCG: Building Enterprise AI Agents in Regulated Industries, Exhibit 3",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.bcg.com/publications/2026/building-enterprise-ai-agents-in-regulated-industries",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "R7",
+      "kind": "public-research",
+      "title": "Accenture: Beyond the Hype, Figure 2",
+      "reviewed_on": "2026-10-07",
+      "visual_review": true,
+      "url": "https://www.accenture.com/en/blogs/ai-data/beyond-hype-why-agentic-ai-closer-than-you-think",
+      "reference": "references/research.md"
+    },
+    {
+      "id": "S1",
+      "kind": "primary-definition",
+      "title": "Scrum Guide 2020, Definition of Done",
+      "reviewed_on": "2026-10-07",
+      "visual_review": false,
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "reference": "references/research.md"
+    }
+  ],
+  "entries": [
+    {
+      "id": "M01",
+      "kind": "management",
+      "title": "Паспорт инициативы и понимание задачи",
+      "question": "Какую задачу и границы согласуем?",
+      "tags": [
+        "задача",
+        "границы",
+        "charter",
+        "scope"
+      ],
+      "required_inputs": [
+        "цель",
+        "сценарии",
+        "границы",
+        "подтверждённое и неизвестное"
+      ],
+      "related": [
+        "V01",
+        "V05"
+      ],
+      "sources": [],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M02",
+      "kind": "management",
+      "title": "Резюме для руководителя",
+      "question": "Что нужно понять или решить по материалу?",
+      "tags": [
+        "резюме",
+        "руководитель",
+        "executive",
+        "brief"
+      ],
+      "required_inputs": [
+        "вывод",
+        "основания",
+        "последствия",
+        "решение"
+      ],
+      "related": [
+        "V01"
+      ],
+      "sources": [],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M03",
+      "kind": "management",
+      "title": "Статус: исходный план, факт и прогноз",
+      "question": "Что изменилось и какое вмешательство требуется?",
+      "tags": [
+        "статус",
+        "прогноз",
+        "риск",
+        "status",
+        "forecast"
+      ],
+      "required_inputs": [
+        "дата среза",
+        "исходный план",
+        "факт",
+        "прогноз",
+        "решение"
+      ],
+      "related": [
+        "V03",
+        "V07"
+      ],
+      "sources": [
+        "U2"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "example",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": [
+        "slides",
+        "pdf",
+        "markdown"
+      ],
+      "example_scripts": {
+        "slides": "scripts/render_gallery.mjs",
+        "pdf": "scripts/render_document_example.py",
+        "markdown": "scripts/render_document_example.py"
+      }
+    },
+    {
+      "id": "M04",
+      "kind": "management",
+      "title": "Готовность и ворота этапов",
+      "question": "На каких основаниях открывается следующий этап?",
+      "tags": [
+        "готовность",
+        "ворота",
+        "DoR",
+        "DoD",
+        "AC",
+        "gates"
+      ],
+      "required_inputs": [
+        "результат этапа",
+        "условие",
+        "свидетельство",
+        "принимающая роль"
+      ],
+      "related": [
+        "V02"
+      ],
+      "sources": [
+        "U1",
+        "S1"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "example",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": [
+        "slides",
+        "pdf",
+        "markdown"
+      ],
+      "example_scripts": {
+        "slides": "scripts/render_gallery.mjs",
+        "pdf": "scripts/render_document_example.py",
+        "markdown": "scripts/render_document_example.py"
+      }
+    },
+    {
+      "id": "M05",
+      "kind": "management",
+      "title": "Варианты и условная рекомендация",
+      "question": "Как выбрать вариант при известных ограничениях?",
+      "tags": [
+        "варианты",
+        "сравнение",
+        "выбор",
+        "options",
+        "comparison"
+      ],
+      "required_inputs": [
+        "варианты",
+        "общие критерии",
+        "неизвестное",
+        "правило выбора"
+      ],
+      "related": [
+        "V04",
+        "V05",
+        "V12"
+      ],
+      "sources": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M06",
+      "kind": "management",
+      "title": "Пилот и обоснование ценности",
+      "question": "Что проверим и как измерим полезность?",
+      "tags": [
+        "пилот",
+        "ценность",
+        "метрики",
+        "pilot",
+        "value"
+      ],
+      "required_inputs": [
+        "гипотеза",
+        "исходная база",
+        "метрика",
+        "способ измерения"
+      ],
+      "related": [
+        "V09"
+      ],
+      "sources": [
+        "R4"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M07",
+      "kind": "management",
+      "title": "Приёмка и решение о запуске",
+      "question": "Что доказывает качество и что разрешает запуск?",
+      "tags": [
+        "приёмка",
+        "качество",
+        "launch",
+        "acceptance"
+      ],
+      "required_inputs": [
+        "сценарии",
+        "критерии со статусом",
+        "результаты проверки",
+        "роль решения"
+      ],
+      "related": [
+        "V02",
+        "V08"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M08",
+      "kind": "management",
+      "title": "Дорожная карта, зависимости и эскалация",
+      "question": "Когда доступен результат и что препятствует ему?",
+      "tags": [
+        "этапы",
+        "зависимости",
+        "сроки",
+        "roadmap",
+        "dependency"
+      ],
+      "required_inputs": [
+        "работы",
+        "зависимости",
+        "вехи",
+        "исходный план и прогноз"
+      ],
+      "related": [
+        "V07"
+      ],
+      "sources": [
+        "U2"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M09",
+      "kind": "management",
+      "title": "Ответственность и контроль решения",
+      "question": "Кто решает, на каком основании и в каких границах?",
+      "tags": [
+        "архитектура",
+        "полномочия",
+        "контроль",
+        "architecture",
+        "control"
+      ],
+      "required_inputs": [
+        "компоненты или роли",
+        "границы",
+        "основания",
+        "принимающая роль"
+      ],
+      "related": [
+        "V05",
+        "V06",
+        "V08"
+      ],
+      "sources": [
+        "U3",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "M10",
+      "kind": "management",
+      "title": "Декомпозиция, приоритеты и рабочий ритм",
+      "question": "Как уровни работы связаны с горизонтом решений?",
+      "tags": [
+        "декомпозиция",
+        "ритм",
+        "backlog",
+        "cadence"
+      ],
+      "required_inputs": [
+        "уровни",
+        "определения",
+        "горизонты",
+        "роли",
+        "результаты"
+      ],
+      "related": [
+        "V10",
+        "V11"
+      ],
+      "sources": [
+        "U4"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/management-templates.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V01",
+      "kind": "visual",
+      "title": "Резюме: вывод, основания, решение",
+      "question": "Какое решение и почему сейчас?",
+      "tags": [
+        "резюме",
+        "executive",
+        "brief"
+      ],
+      "required_inputs": [
+        "вывод",
+        "основания",
+        "последствия",
+        "решение"
+      ],
+      "related": [
+        "M01",
+        "M02"
+      ],
+      "sources": [],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V02",
+      "kind": "visual",
+      "title": "Этапы и матрица ворот",
+      "question": "Что открывает следующий этап?",
+      "tags": [
+        "ворота",
+        "готовность",
+        "matrix",
+        "gates"
+      ],
+      "required_inputs": [
+        "этапы",
+        "результат",
+        "условия",
+        "свидетельство",
+        "роль"
+      ],
+      "related": [
+        "M04",
+        "M07"
+      ],
+      "sources": [
+        "U1"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "example",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": [
+        "slides",
+        "pdf",
+        "markdown"
+      ],
+      "example_scripts": {
+        "slides": "scripts/render_gallery.mjs",
+        "pdf": "scripts/render_document_example.py",
+        "markdown": "scripts/render_document_example.py"
+      }
+    },
+    {
+      "id": "V03",
+      "kind": "visual",
+      "title": "Статус на дату и общий календарь",
+      "question": "Каков прогноз и что требует вмешательства?",
+      "tags": [
+        "статус",
+        "dashboard",
+        "прогноз",
+        "forecast"
+      ],
+      "required_inputs": [
+        "дата среза",
+        "исходный план",
+        "прогноз",
+        "риск",
+        "решение"
+      ],
+      "related": [
+        "M03"
+      ],
+      "sources": [
+        "U2"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "example",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": [
+        "slides",
+        "pdf",
+        "markdown"
+      ],
+      "example_scripts": {
+        "slides": "scripts/render_gallery.mjs",
+        "pdf": "scripts/render_document_example.py",
+        "markdown": "scripts/render_document_example.py"
+      }
+    },
+    {
+      "id": "V04",
+      "kind": "visual",
+      "title": "Сопоставимые критерии и варианты",
+      "question": "Чем различаются варианты?",
+      "tags": [
+        "таблица",
+        "сравнение",
+        "options",
+        "criteria"
+      ],
+      "required_inputs": [
+        "варианты",
+        "общие критерии",
+        "значения",
+        "неизвестное"
+      ],
+      "related": [
+        "M05"
+      ],
+      "sources": [
+        "R2"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V05",
+      "kind": "visual",
+      "title": "Текущий и предлагаемый процессы",
+      "question": "Что изменяется в работе?",
+      "tags": [
+        "процесс",
+        "до после",
+        "workflow",
+        "before after"
+      ],
+      "required_inputs": [
+        "общий результат",
+        "сопоставимые шаги",
+        "роли",
+        "изменяемое действие"
+      ],
+      "related": [
+        "M01",
+        "M05",
+        "M09"
+      ],
+      "sources": [
+        "R1"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "example",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": [
+        "slides",
+        "pdf",
+        "markdown"
+      ],
+      "example_scripts": {
+        "slides": "scripts/render_gallery.mjs",
+        "pdf": "scripts/render_document_example.py",
+        "markdown": "scripts/render_document_example.py"
+      }
+    },
+    {
+      "id": "V06",
+      "kind": "visual",
+      "title": "Архитектура и реестр с общими ID",
+      "question": "Где проблема и какой контроль нужен?",
+      "tags": [
+        "архитектура",
+        "реестр",
+        "architecture",
+        "register"
+      ],
+      "required_inputs": [
+        "компоненты",
+        "границы",
+        "запрос и ответ",
+        "ID наблюдения",
+        "действие"
+      ],
+      "related": [
+        "M09"
+      ],
+      "sources": [
+        "U3",
+        "R5",
+        "R7"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V07",
+      "kind": "visual",
+      "title": "Работы и вехи на общей оси",
+      "question": "Когда результат становится доступен?",
+      "tags": [
+        "сроки",
+        "календарь",
+        "roadmap",
+        "timeline"
+      ],
+      "required_inputs": [
+        "работы",
+        "вехи",
+        "исходный план",
+        "прогноз",
+        "результат"
+      ],
+      "related": [
+        "M03",
+        "M08"
+      ],
+      "sources": [
+        "U2"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V08",
+      "kind": "visual",
+      "title": "Цепочка источника и доказательства",
+      "question": "На чём основан ответ или результат?",
+      "tags": [
+        "источник",
+        "проверка",
+        "evidence",
+        "source"
+      ],
+      "required_inputs": [
+        "условие",
+        "источник",
+        "проверка",
+        "фрагмент результата",
+        "исключение"
+      ],
+      "related": [
+        "M07",
+        "M09"
+      ],
+      "sources": [
+        "R7"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V09",
+      "kind": "visual",
+      "title": "Причины ценности и метрики",
+      "question": "Как действие превращается в измеряемую ценность?",
+      "tags": [
+        "ценность",
+        "метрика",
+        "дерево",
+        "value",
+        "metrics"
+      ],
+      "required_inputs": [
+        "действие",
+        "результат",
+        "исходная база",
+        "метрика",
+        "измерение"
+      ],
+      "related": [
+        "M06"
+      ],
+      "sources": [
+        "R4"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V10",
+      "kind": "visual",
+      "title": "Иерархия, смысл и горизонт",
+      "question": "Как связаны уровни работы?",
+      "tags": [
+        "иерархия",
+        "hierarchy",
+        "horizon"
+      ],
+      "required_inputs": [
+        "уровни",
+        "определения",
+        "горизонты",
+        "результаты уровней и роли"
+      ],
+      "related": [
+        "M10"
+      ],
+      "sources": [
+        "U4"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V11",
+      "kind": "visual",
+      "title": "Календарь ролей и увеличение цикла",
+      "question": "Кто и когда участвует регулярно?",
+      "tags": [
+        "ритм",
+        "календарь",
+        "роли",
+        "cadence",
+        "calendar"
+      ],
+      "required_inputs": [
+        "роли",
+        "циклы",
+        "масштаб",
+        "события",
+        "результаты"
+      ],
+      "related": [
+        "M10"
+      ],
+      "sources": [
+        "U4"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    },
+    {
+      "id": "V12",
+      "kind": "visual",
+      "title": "Два условия и четыре действия",
+      "question": "Как условия меняют предпочтительный подход?",
+      "tags": [
+        "матрица",
+        "2x2",
+        "условия",
+        "conditions"
+      ],
+      "required_inputs": [
+        "определение осей",
+        "категории",
+        "действия",
+        "условия выбора"
+      ],
+      "related": [
+        "M05"
+      ],
+      "sources": [
+        "R3"
+      ],
+      "review_status": "reviewed",
+      "implementation_status": "recipe",
+      "formats": [
+        "slides",
+        "document"
+      ],
+      "reference": "references/visual-patterns.md",
+      "verified_formats": []
+    }
+  ]
+}

@@ -52,6 +52,8 @@ PDF, которые не стыдно отдать заказчику: отчё�
 | Как писать КП | [docs/PROPOSAL.md](docs/PROPOSAL.md) |
 | Стандарт презентаций | [docs/PRESENTATION.md](docs/PRESENTATION.md) |
 | Структура клиентской презентации по слайдам | [docs/PRESENTATION_STRUCTURE.md](docs/PRESENTATION_STRUCTURE.md) |
+| Общая база для презентаций, документов и PDF | [Скилл, библиотека и процесс](docs/CONSULTING_ARTIFACTS.md) |
+| Пополняемый каталог управления и визуализации | [10 управленческих шаблонов и 12 композиций](skills/cinimex-consulting/library/catalog.json) |
 | Стиль Cinimex Consulting | [Эталон и сборка](templates/presentations/cinimex-consulting/README.md) |
 | Идеи развития презентаций | [Исследование McKinsey, Bain, BCG](docs/PRESENTATION_RESEARCH.md) |
 

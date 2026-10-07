@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "style": "Cinimex Consulting v2",
+  "status": "project-standard",
+  "provenance": "Working project style; not a published corporate brand book. Explicit user templates take precedence.",
+  "colors": {
+    "navy": "#071D33",
+    "orange": "#F28A20",
+    "accentText": "#9B4F10",
+    "muted": "#536777",
+    "paper": "#F4F7FA",
+    "grid": "#DDE5EB",
+    "white": "#FFFFFF",
+    "paleOrange": "#FFF2E5",
+    "baseline": "#A5B2BD"
+  },
+  "slides": {
+    "unit": "px",
+    "width": 1280,
+    "height": 720,
+    "font": "Calibri",
+    "body": 19,
+    "minBody": 17,
+    "title": 34,
+    "source": 12,
+    "margin": 56
+  },
+  "document": {
+    "unit": "pt",
+    "page": "A4",
+    "orientation": "portrait",
+    "font": "DejaVu Sans",
+    "body": 11,
+    "leading": 15,
+    "title": 23,
+    "heading": 15,
+    "source": 8,
+    "margin": 42,
+    "maxTableColumns": 5
+  }
+}
