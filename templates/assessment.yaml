@@ -1,0 +1,102 @@
+# Шаблон файла оценки. Создавайте копию командой `assess new <идентификатор>`.
+#
+# Файл заполняется по ходу работы: со статусом `draft` разрешено оставлять измерения
+# неоцененными, и `assess check` на это не ругается. Полные проверки (уверенность,
+# источник и рекомендация у каждого измерения, владельцы действий, меры по рискам)
+# включаются, когда статус меняется на `final`.
+#
+# Правила, которые экономят время на ревью:
+# — в `finding` пишется наблюдение, а не оценка: что видели, а не «плохо/хорошо»;
+# — каждое измерение ссылается на источник из `sources`, иначе вывод не проверить;
+# — имена людей со стороны заказчика не записываются: роль, а не фамилия;
+# — уровень ставится по опорным описаниям рубрики (docs/RUBRIC.md), а не по ощущению.
+
+id: ЗАМЕНИТЕ-ИДЕНТИФИКАТОР
+version: 1
+rubric_version: 1
+status: draft # draft | review | final
+
+project:
+  name: ЗАПОЛНИТЕ название проекта
+  client: ЗАПОЛНИТЕ заказчика
+  client_code: ПРОЕКТ-00
+  sponsor: ЗАПОЛНИТЕ роль заказчика процесса, без имени
+  stage: discovery # discovery | pilot | mvp | production | scaled
+  pattern: rag-assistant # assistant | rag-assistant | workflow-agent | multi-agent | autonomous
+  started: ЗАМЕНИТЕ-ДАТУ
+  assessed: ЗАМЕНИТЕ-ДАТУ
+  assessors:
+    - ЗАПОЛНИТЕ, кто проводил оценку
+  summary: >-
+    ЗАПОЛНИТЕ: что за проект, какую задачу закрывает агент, в каком состоянии он был
+    на момент оценки. Два-три предложения без оценочных слов.
+  scope:
+    in:
+      - ЗАПОЛНИТЕ, что входило в периметр оценки
+    out:
+      - ЗАПОЛНИТЕ, что осталось за периметром и почему
+  stack:
+    Модели:
+      - ЗАПОЛНИТЕ
+    Оркестрация:
+      - ЗАПОЛНИТЕ
+    Данные:
+      - ЗАПОЛНИТЕ
+  metrics:
+    - name: ЗАПОЛНИТЕ метрику проекта
+      baseline: "—"
+      target: "—"
+      actual: "—"
+
+sources:
+  - id: s1
+    kind: interview # interview | demo | document | code | telemetry | test | observation
+    title: ЗАПОЛНИТЕ, с кем или с чем работали
+    date: ЗАМЕНИТЕ-ДАТУ
+    confidence: medium
+
+scores:
+  # Копируйте этот блок на каждое измерение рубрики. Полный перечень идентификаторов:
+  # business-value, agent-fit, economics, data-knowledge, architecture, models-context,
+  # security, evaluation, reliability, human-loop, delivery, governance.
+  business-value:
+    level: 0
+    confidence: low
+    finding: >-
+      ЗАПОЛНИТЕ наблюдение: что именно видели или услышали по этому измерению.
+    evidence: [s1]
+    risk: ЗАПОЛНИТЕ, чем это грозит проекту
+    recommendation: ЗАПОЛНИТЕ, что сделать
+    criteria:
+      bv-problem: 0
+      bv-metric: 0
+      bv-alternative: 0
+
+risks:
+  - id: r1
+    title: ЗАПОЛНИТЕ риск
+    dimension: business-value
+    probability: medium # low | medium | high
+    impact: medium
+    mitigation: ЗАПОЛНИТЕ меру реагирования
+    owner: ЗАПОЛНИТЕ владельца риска
+
+actions:
+  - id: a1
+    title: ЗАПОЛНИТЕ действие
+    horizon: 30 # 30 | 60 | 90
+    dimension: business-value
+    effort: m # s | m | l
+    impact: high
+    owner: ЗАПОЛНИТЕ владельца
+    outcome: ЗАПОЛНИТЕ проверяемый результат
+
+verdict:
+  rationale: >-
+    ЗАПОЛНИТЕ одним абзацем, почему решение такое. Решение считается по рубрике;
+    поле `decision` заполняется только если осознанно расходитесь с расчётом.
+  conditions:
+    - ЗАПОЛНИТЕ условие перехода к следующему шагу
+
+highlights:
+  - ЗАПОЛНИТЕ ключевой вывод для руководства

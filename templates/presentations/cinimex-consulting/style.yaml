@@ -1,0 +1,50 @@
+id: cinimex-consulting
+version: 2
+artifact_tool_version: 2.8.24
+name: Cinimex Consulting
+description: Тёмная обложка с визуалом конкретного проекта и светлые аналитические слайды.
+canvas: {width: 1280, height: 720}
+palette:
+  navy: '#071D33'
+  orange: '#F28A20'
+  orange_text: '#9B4F10'
+  paper: '#F4F7FA'
+  white: '#FFFFFF'
+  muted: '#536777'
+  grid: '#E5EBEF'
+  pale_orange: '#FCE9D8'
+  pale_blue: '#D9E7F3'
+typography:
+  font: Calibri
+  cover_title_pt: 40.5
+  slide_title_pt: 23.25
+  column_title_pt: 18
+  body_pt: 12.75
+  source_pt: 9
+  kicker_pt: 10.5
+layouts:
+  - id: cover
+    slide: 1
+    use: Титул презентации или начало крупного раздела.
+    editable: [cover-title, Rectangle 4, Rectangle 8, Rectangle 16, Rectangle 17]
+  - id: three-conditions
+    slide: 2
+    use: Три условия, три варианта или три направления работы с общим выводом.
+    editable: [kicker-2, title-2, Rectangle 11, Rectangle 13, Rectangle 14,
+      Rectangle 17, Rectangle 19, Rectangle 20, Rectangle 23, Rectangle 25,
+      Rectangle 26, Rectangle 29]
+cover_policy:
+  visual: Иллюстрация оборудования, процесса или задачи именно этого проекта.
+  purpose: Заказчик должен узнавать предмет предложения без чтения мелких пояснений.
+  required_content: [название проекта, заказчик, предложение Синимекс, контакты из профиля]
+  generic_visual: Круги с AI и другие универсальные символы заменяются проектным изображением.
+  asset_rule: Изображение хранится отдельно; его путь и промпт фиксируются при сборке.
+  editable_content: Заголовок, заказчик и контакты остаются нативным текстом PowerPoint.
+visual_extension:
+  status: adopted
+  reference: ../../../docs/PRESENTATION_VISUAL_STANDARD.md
+sources:
+  visual_reference: Digital_Ruble_Explainer_RU_v3.pptx, слайды 1–2, материал пользователя
+  logo: https://www.cinimex.ru/local/templates/.default/images/logo_ru.svg
+  palette: Оранжевый из официального SVG; остальные цвета — адаптация пользовательского эталона.
+  content: src/content/rubric.yaml v1

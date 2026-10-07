@@ -1,0 +1,108 @@
+#!/bin/sh
+# Проверка того, что уходит в коммит: данные клиентов не должны попасть в историю.
+#
+# Проверяется только то, что реально поставлено в индекс (`git diff --cached`), а не
+# рабочее дерево: смысл в том, чтобы остановить коммит, а не ругаться на локальные файлы.
+# Корпоративный email наших сотрудников разрешён только в поле email профиля
+# компании. Клиентские контакты и остальные адреса проверяются без исключений.
+set -eu
+
+fail() {
+  printf '\033[31mprivacy-check: %s\033[0m\n' "$1" >&2
+  failed=1
+}
+
+failed=0
+scope=${1:-index}
+case "$scope" in
+  index) staged=$(git diff --cached --name-only --diff-filter=ACMR) ;;
+  tree) staged=$(git ls-files) ;;
+  commit)
+    revision=$(git rev-parse --verify "${2:?commit sha required}^{commit}")
+    staged=$(git ls-tree -r --name-only "$revision")
+    ;;
+  *)
+    printf 'privacy-check: scope — index, tree или commit <sha>\n' >&2
+    exit 2
+    ;;
+esac
+[ -n "$staged" ] || exit 0
+
+for path in $staged; do
+  case "$path" in
+    clients/README.md | clients/.gitkeep) ;;
+    clients/* | docs/client-projects/*)
+      fail "$path — материалы реального клиента остаются локально"
+      ;;
+    assessments/README.md | assessments/.gitkeep) ;;
+    proposals/README.md | proposals/.gitkeep) ;;
+    assessments/*)
+      fail "$path — оценки по клиентам не коммитятся (см. assessments/README.md)"
+      ;;
+    proposals/*)
+      fail "$path — коммерческие предложения не коммитятся (см. proposals/README.md)"
+      ;;
+    dist/* | private/* | data/* | output/* | backups/* | tmp/*)
+      fail "$path — каталог не предназначен для коммита"
+      ;;
+    docs/reports/* | docs/proposals/* | docs/assets/*)
+      fail "$path — собирается командой \`assess build\`, в коммит не идёт"
+      ;;
+    docs/PORTFOLIO.md | docs/RUBRIC.md | docs/COMPANY.md)
+      fail "$path — собирается командой \`assess build\`, в коммит не идёт"
+      ;;
+  esac
+  case "$path" in
+    *.pdf | *.docx | *.xlsx | *.pptx | *.potx | *.png | *.jpg | *.jpeg | *.zip | *.env | .env | .env.* | *.pem | *.p12)
+      fail "$path — бинарный формат, в котором легко унести данные заказчика"
+      ;;
+  esac
+done
+
+# Содержимое проверяется только в текстовых файлах, которые могут нести данные
+# заказчика. Файл блокировок и исходники сюда не попадают: там живут безобидные
+# строки, похожие на секреты, и каждое ложное срабатывание учит обходить хук.
+text=$(printf '%s\n' "$staged" | grep -E '\.(ya?ml|md|json|txt|csv)$' | grep -v '^uv\.lock$' || true)
+if [ -n "$text" ]; then
+  if [ "$scope" = "commit" ]; then
+    added=$(git grep -h '' "$revision" -- $text 2>/dev/null || true)
+  elif [ "$scope" = "tree" ]; then
+    added=$(git grep -h '' -- $text 2>/dev/null || true)
+  else
+    added=$(git diff --cached --unified=0 --diff-filter=ACMR -- $text |
+      grep '^+' | grep -v '^+++' || true)
+  fi
+
+  if printf '%s' "$added" | grep -qE -- '-----BEGIN [A-Z ]*PRIVATE KEY-----'; then
+    fail "в добавленных строках приватный ключ"
+  fi
+  if printf '%s' "$added" |
+    grep -qiE '(api[_-]?key|secret|password|passwd|token)[^a-z]{0,3}[:=][[:space:]]*.?[A-Za-z0-9/_+-]{16,}'; then
+    fail "в добавленных строках похоже на секрет (ключ, пароль, токен)"
+  fi
+  for path in $text; do
+    if [ "$scope" = "commit" ]; then
+      emails=$(git show "$revision:$path")
+    elif [ "$scope" = "tree" ]; then
+      emails=$(git show ":$path")
+    else
+      emails=$(git diff --cached --unified=0 --diff-filter=ACMR -- "$path" |
+        grep '^+' | grep -v '^+++' || true)
+    fi
+    if [ "$path" = "src/content/company.yaml" ]; then
+      emails=$(printf '%s\n' "$emails" |
+        grep -vE '^\+?[[:space:]]+email: [A-Za-z0-9._%+-]+@cinimex\.ru[[:space:]]*$' || true)
+    fi
+    # Домен ограничен списком: иначе «@pytest.fixture» и «@AGENTS.md» читаются как почта.
+    if printf '%s' "$emails" |
+      grep -qE '[A-Za-z0-9._%+-]{2,}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.(ru|com|org|net|io|dev|me|su|biz|info)\b'; then
+      fail "$path — адрес электронной почты: в оценках указываются роли, не люди"
+    fi
+  done
+fi
+
+if [ "$failed" -ne 0 ]; then
+  printf 'Коммит остановлен. Уберите файл из индекса: git restore --staged <path>\n' >&2
+  printf '(до первого коммита — git rm --cached <path>)\n' >&2
+  exit 1
+fi

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Рубрика и образцы должны оставаться валидными, а в индексе не должно быть данных клиентов.
+set -eu
+root=$(git rev-parse --show-toplevel)
+uv run --project "$root" --frozen assess --demo check >/dev/null
+"$root/.githooks/privacy-check"

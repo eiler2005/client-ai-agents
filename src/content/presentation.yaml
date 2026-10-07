@@ -1,0 +1,20 @@
+# Стандарт презентаций: собственное оформление Синимекс, консалтинговая подача.
+version: 1
+canvas:
+  width: 1600
+  height: 900
+font: Arial
+colors:
+  paper: '#ffffff'
+  ink: '#18364b'
+  muted: '#617180'
+  accent: '#137c80'
+  grid: '#dde7ec'
+  critical: '#b3321f'
+  light: '#f7fafb'
+typography:
+  cover: 72
+  title: 48
+  heading: 34
+  body: 26
+  source: 18

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "canvas", "font", "colors", "typography"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"const": 1600},
+        "height": {"const": 900}
+      }
+    },
+    "font": {"type": "string", "minLength": 1},
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paper", "ink", "muted", "accent", "grid", "critical", "light"],
+      "properties": {
+        "paper": {"$ref": "#/$defs/color"},
+        "ink": {"$ref": "#/$defs/color"},
+        "muted": {"$ref": "#/$defs/color"},
+        "accent": {"$ref": "#/$defs/color"},
+        "grid": {"$ref": "#/$defs/color"},
+        "critical": {"$ref": "#/$defs/color"},
+        "light": {"$ref": "#/$defs/color"}
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cover", "title", "heading", "body", "source"],
+      "properties": {
+        "cover": {"type": "number", "minimum": 67, "maximum": 80},
+        "title": {"type": "number", "minimum": 47, "maximum": 52},
+        "heading": {"type": "number", "minimum": 32, "maximum": 36},
+        "body": {"type": "number", "minimum": 22, "maximum": 28},
+        "source": {"type": "number", "minimum": 16, "maximum": 20}
+      }
+    }
+  },
+  "$defs": {"color": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}}
+}

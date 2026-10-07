@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Коммерческое предложение",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "status", "date", "client", "project", "context", "scope", "stages"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["draft", "review", "final"] },
+    "date": { "type": "string", "format": "date" },
+    "valid_until": { "type": "string", "format": "date" },
+    "client": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "industry"],
+      "properties": {
+        "name": { "type": "string" },
+        "industry": { "type": "string" },
+        "contact_role": { "type": "string", "description": "Роль адресата, не имя." }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "summary"],
+      "properties": {
+        "name": { "type": "string", "minLength": 3 },
+        "summary": { "type": "string", "minLength": 40 },
+        "assessment": { "type": "string", "description": "id оценки, если КП идёт после неё." },
+        "authors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem", "goals"],
+      "properties": {
+        "problem": { "type": "string", "minLength": 40 },
+        "goals": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "baseline": { "type": "string" },
+              "target": { "type": "string" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["in"],
+      "properties": {
+        "in": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "out": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "offerings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Идентификаторы услуг из company.yaml, из которых собрано предложение."
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "weeks", "deliverables"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "weeks": { "type": "number", "exclusiveMinimum": 0 },
+          "goal": { "type": "string" },
+          "activities": { "type": "array", "items": { "type": "string" } },
+          "deliverables": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "price": { "type": "string" },
+          "gate": { "type": "string", "description": "Условие перехода к следующему этапу." }
+        }
+      }
+    },
+    "team": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "count"],
+        "properties": {
+          "role": { "type": "string" },
+          "count": { "type": "number", "exclusiveMinimum": 0 },
+          "load": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "commercials": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": { "enum": ["fixed", "tm", "pilot", "mixed"] },
+        "total": { "type": "string" },
+        "terms": { "type": "array", "items": { "type": "string" } },
+        "assumptions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "mitigation"],
+        "properties": {
+          "title": { "type": "string" },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "about": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "facts": { "type": "array", "items": { "type": "string" } },
+        "proof": { "type": "array", "items": { "type": "string" } },
+        "clients": { "type": "boolean" },
+        "platform": { "type": "boolean" }
+      }
+    },
+    "next_steps": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "notes": { "type": "string" }
+  }
+}

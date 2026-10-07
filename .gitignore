@@ -1,0 +1,49 @@
+# Окружение и кеши
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.DS_Store
+
+# Сборка: отчёты и фигуры собираются из источников, не коммитятся
+dist/
+build/
+docs/reports/
+docs/proposals/
+docs/PORTFOLIO.md
+docs/RUBRIC.md
+docs/COMPANY.md
+docs/assets/*.svg
+docs/assets/*.png
+
+# Данные клиентов. Оценки и предложения живут только локально.
+clients/*
+!clients/.gitkeep
+!clients/README.md
+docs/client-projects/
+assessments/*
+!assessments/.gitkeep
+!assessments/README.md
+proposals/*
+!proposals/.gitkeep
+!proposals/README.md
+private/
+data/
+output/
+tmp/
+backups/
+
+# Форматы, в которых легко унести данные клиента наружу
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.potx
+*.png
+*.jpg
+*.env
+.env.*
+*.log

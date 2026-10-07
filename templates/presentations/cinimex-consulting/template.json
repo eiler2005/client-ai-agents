@@ -1,0 +1,5476 @@
+{
+  "id": "cinimex-consulting-v1",
+  "slides": [
+    {
+      "id": "y90nupkv",
+      "index": 0,
+      "useLayoutId": "/ppt/slideLayouts/slideLayout1.xml",
+      "widthEmu": 12192000,
+      "heightEmu": 6858000,
+      "creationId": "1536850151",
+      "elements": [
+        {
+          "id": "19",
+          "name": "Rounded Rectangle 18",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "F28A20"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{E543133E-0F8D-4A76-921C-68C2C95BDB8A}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 0,
+            "yEmu": 0,
+            "widthEmu": 12192000,
+            "heightEmu": 114300
+          }
+        },
+        {
+          "id": "2",
+          "name": "Rounded Rectangle 1",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "F28A20"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{C486EC82-7951-46EB-AD24-AC89131EB5E5}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 742950,
+            "yEmu": 590550,
+            "widthEmu": 438150,
+            "heightEmu": 47625
+          }
+        },
+        {
+          "id": "3",
+          "name": "Rectangle 2",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{010E7295-7B6A-4FFA-9A98-FC1BB999CFF2}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "СИНИМЕКС DATA LAB  |  ОЦЕНКА ИИ-АГЕНТОВ",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1050,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "E4A66C"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1050,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "46B8D8"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 1352550,
+            "yEmu": 495300,
+            "widthEmu": 5334000,
+            "heightEmu": 228600
+          }
+        },
+        {
+          "id": "4",
+          "name": "cover-title",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{DFD6AA17-510F-49F9-BBB0-BB80C4C43948}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "ИИ-агенты:",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 4050,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 4050,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "готовность к",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 4050,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 4050,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "масштабированию",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 4050,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 4050,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 742950,
+            "yEmu": 1219200,
+            "widthEmu": 6858000,
+            "heightEmu": 2247900
+          }
+        },
+        {
+          "id": "5",
+          "name": "Rectangle 4",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{09103990-0DD5-415B-91AC-753A466B4003}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Измеримый эффект · качество · управляемые риски",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1575,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "CCD5DC"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1575,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "CCD5DC"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "От диагностики проекта к плану следующего этапа",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1575,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "CCD5DC"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1575,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "CCD5DC"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 781050,
+            "yEmu": 3848100,
+            "widthEmu": 6858000,
+            "heightEmu": 685800
+          }
+        },
+        {
+          "id": "6",
+          "name": "Oval 5",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 14288,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "3B5267"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{36926DF5-B6F5-41EA-86FC-378EDCF6C53B}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 8172450,
+            "yEmu": 1123950,
+            "widthEmu": 3257550,
+            "heightEmu": 3257550
+          }
+        },
+        {
+          "id": "7",
+          "name": "Oval 6",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 21908,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{AB14BBC1-7892-4593-A9A8-FD2673346FF1}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 8610600,
+            "yEmu": 1562100,
+            "widthEmu": 2381250,
+            "heightEmu": 2381250
+          }
+        },
+        {
+          "id": "8",
+          "name": "Oval 7",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "FFFFFF"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "FFFFFF"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{9C1D4D0C-6500-45F8-830B-EC37CB76AF0D}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 9115425,
+            "yEmu": 2066925,
+            "widthEmu": 1371600,
+            "heightEmu": 1371600
+          }
+        },
+        {
+          "id": "9",
+          "name": "Rectangle 8",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{10C09F8F-412C-4FD6-9774-BA4835CEAA95}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "AI",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 3450,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 4950,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "071D33"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 9353550,
+            "yEmu": 2305050,
+            "widthEmu": 895350,
+            "heightEmu": 742950
+          }
+        },
+        {
+          "id": "10",
+          "name": "Rounded Rectangle 9",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "E9EFF3"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "E9EFF3"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{9577E5B3-C806-47C2-82E9-C40C376BEEAE}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 8029575,
+            "yEmu": 4800600,
+            "widthEmu": 1257300,
+            "heightEmu": 285750
+          }
+        },
+        {
+          "id": "11",
+          "name": "Rectangle 10",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{809C6261-1614-4149-A5E5-FACFA3D1C496}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "ЭФФЕКТ",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 975,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 975,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 8105775,
+            "yEmu": 4848225,
+            "widthEmu": 1104900,
+            "heightEmu": 190500
+          }
+        },
+        {
+          "id": "12",
+          "name": "Rounded Rectangle 11",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "FCE9D8"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "FCE9D8"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{87DEA3A2-EA65-44E8-8883-746B0FB0BC80}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 9391650,
+            "yEmu": 4800600,
+            "widthEmu": 1104900,
+            "heightEmu": 285750
+          }
+        },
+        {
+          "id": "13",
+          "name": "Rectangle 12",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{CA181E88-CE20-4891-A0A0-25FBBD946802}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "КАЧЕСТВО",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 975,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "9B4F10"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 975,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "075BCB"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 9467850,
+            "yEmu": 4848225,
+            "widthEmu": 952500,
+            "heightEmu": 190500
+          }
+        },
+        {
+          "id": "14",
+          "name": "Rounded Rectangle 13",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "D9E7F3"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "D9E7F3"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{5FD68946-AE4B-4F50-B0D6-58B9E3BC6B5A}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 10591800,
+            "yEmu": 4800600,
+            "widthEmu": 876300,
+            "heightEmu": 285750
+          }
+        },
+        {
+          "id": "15",
+          "name": "Rectangle 14",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{8048D4EC-6052-44A7-B79E-510237D0DAA9}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "РИСКИ",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 975,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "244F70"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 975,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "008A82"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 10668000,
+            "yEmu": 4848225,
+            "widthEmu": 723900,
+            "heightEmu": 190500
+          }
+        },
+        {
+          "id": "16",
+          "name": "Straight Connector 15",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 1,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 9525,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "536777"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{B1FF4FB1-79D5-43C0-B291-B5DA7E04D954}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 7810500,
+            "yEmu": 5410200,
+            "widthEmu": 3695700,
+            "heightEmu": 0
+          }
+        },
+        {
+          "id": "17",
+          "name": "Rectangle 16",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{780EA081-1612-4500-8F27-7AEA52BB1415}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Решение о следующем этапе\nна основе фактов и доказательств.",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 7829550,
+            "yEmu": 5562600,
+            "widthEmu": 3676650,
+            "heightEmu": 476250
+          }
+        },
+        {
+          "id": "18",
+          "name": "Rectangle 17",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{18114E06-1B6F-422C-9043-6AFB6B6979C0}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Октябрь 2026",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1125,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "CCD5DC"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1125,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "CCD5DC"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 781050,
+            "yEmu": 6191250,
+            "widthEmu": 2286000,
+            "heightEmu": 209550
+          }
+        },
+        {
+          "id": "20",
+          "name": "",
+          "type": 7,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "fill": {
+            "type": 4,
+            "gradientStops": [],
+            "relId": "R2180f70cfcb1409c",
+            "imageReference": {
+              "id": "/ppt/media/image.png"
+            },
+            "pictureEffects": []
+          },
+          "pictureHasPresetGeometry": true,
+          "imageReference": {
+            "id": "/ppt/media/image.png"
+          },
+          "creationId": "{C7B20694-0BA0-4BA4-858A-6C297CDF6FD6}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 9525000,
+            "yEmu": 381159,
+            "widthEmu": 1905000,
+            "heightEmu": 406400
+          }
+        }
+      ],
+      "background": {
+        "fill": {
+          "type": 1,
+          "color": {
+            "type": 1,
+            "value": "071D33"
+          },
+          "gradientStops": [],
+          "pictureEffects": []
+        }
+      },
+      "notesSlide": {
+        "id": "",
+        "elements": [
+          {
+            "id": "",
+            "name": "Slide Image Placeholder 1",
+            "type": 0,
+            "placeholderIndex": 0,
+            "placeholderType": "sldImg",
+            "zIndex": 0,
+            "paragraphs": [],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          },
+          {
+            "id": "",
+            "name": "Notes Placeholder 2",
+            "type": 1,
+            "placeholderIndex": 1,
+            "placeholderType": "body",
+            "zIndex": 0,
+            "textStyle": {},
+            "paragraphs": [
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Визуальный прототип Синимекс, 2 слайда. Не оценка клиента.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Содержательная основа: src/content/rubric.yaml v1; docs/METHODOLOGY.md.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Три условия — укрупнённое объяснение методики; исходные четыре группы и 12 измерений не заменяются.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Визуальный исходник: пользовательский Digital_Ruble_Explainer_RU_v3.pptx, слайды 1–2, адаптация по просьбе пользователя.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Бренд: https://www.cinimex.ru/ ; логотип https://www.cinimex.ru/local/templates/.default/images/logo_ru.svg ; оранжевый #F28A20 из SVG.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Дополнительное исследование подачи: https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/november%202025/the-state-of-ai-2025-agents-innovation_cmyk-v1.pdf и https://www.bain.com/insights/topics/technology-report/ . Чужие числа не использованы.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              }
+            ],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          },
+          {
+            "id": "",
+            "name": "Slide Number Placeholder 3",
+            "type": 1,
+            "placeholderIndex": 5,
+            "placeholderType": "sldNum",
+            "zIndex": 0,
+            "textStyle": {},
+            "paragraphs": [
+              {
+                "id": "",
+                "runs": [],
+                "inlineNodes": [],
+                "textStyle": {}
+              }
+            ],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          }
+        ],
+        "index": 0,
+        "useLayoutId": "/ppt/slideLayouts/slideLayout1.xml",
+        "widthEmu": 0,
+        "heightEmu": 0
+      }
+    },
+    {
+      "id": "hwbqtkby",
+      "index": 1,
+      "useLayoutId": "/ppt/slideLayouts/slideLayout1.xml",
+      "widthEmu": 12192000,
+      "heightEmu": 6858000,
+      "creationId": "2119577021",
+      "elements": [
+        {
+          "id": "31",
+          "name": "Rounded Rectangle 30",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "F28A20"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{202902C4-6B24-405A-872D-404AF34993AF}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 0,
+            "yEmu": 0,
+            "widthEmu": 114300,
+            "heightEmu": 6858000
+          }
+        },
+        {
+          "id": "2",
+          "name": "Rounded Rectangle 1",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "F28A20"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{E6836D4C-7F5D-42DF-BFE7-AAFF4096BCB0}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 609600,
+            "yEmu": 304800,
+            "widthEmu": 323850,
+            "heightEmu": 47625
+          }
+        },
+        {
+          "id": "3",
+          "name": "kicker-2",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{B0468D52-BFAF-46BF-92F4-3C15E13755F4}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "01. ГОТОВНОСТЬ К МАСШТАБИРОВАНИЮ",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 975,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "9B4F10"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 975,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "075BCB"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 1066800,
+            "yEmu": 228600,
+            "widthEmu": 4762500,
+            "heightEmu": 209550
+          }
+        },
+        {
+          "id": "4",
+          "name": "title-2",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{690194A9-CB15-40AE-B06D-764888F04DA6}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Масштабирование требует эффекта, качества и контроля",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 2325,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 2325,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "071D33"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 609600,
+            "yEmu": 542925,
+            "widthEmu": 10344150,
+            "heightEmu": 895350
+          }
+        },
+        {
+          "id": "5",
+          "name": "Straight Connector 4",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 1,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 9525,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "E2E8ED"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{0F1BCEAB-F421-48D7-8F2E-B1DA8BD2F203}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 609600,
+            "yEmu": 1524000,
+            "widthEmu": 10972800,
+            "heightEmu": 0
+          }
+        },
+        {
+          "id": "6",
+          "name": "Rounded Rectangle 5",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "071D33"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 9525,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "071D33"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{CD556E80-F5C4-4FCD-981B-D5DA5AD60607}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 11068050,
+            "yEmu": 228600,
+            "widthEmu": 514350,
+            "heightEmu": 285750
+          }
+        },
+        {
+          "id": "7",
+          "name": "Rectangle 6",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{D93ACB0B-EF4A-47BA-9971-D3CD5A0A76C0}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "02",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 975,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 975,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 11163300,
+            "yEmu": 285750,
+            "widthEmu": 323850,
+            "heightEmu": 171450
+          }
+        },
+        {
+          "id": "8",
+          "name": "Straight Connector 7",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 1,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 9525,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "E2E8ED"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{AF54FC30-E174-40E7-A2A6-8ADEB72F982F}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 3924300,
+            "yEmu": 1809750,
+            "widthEmu": 0,
+            "heightEmu": 3352800
+          }
+        },
+        {
+          "id": "9",
+          "name": "Straight Connector 8",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 1,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 9525,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "E2E8ED"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{831010DD-A262-48E0-AEAD-F0AC2B2F2EFA}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 7400925,
+            "yEmu": 1809750,
+            "widthEmu": 0,
+            "heightEmu": 3352800
+          }
+        },
+        {
+          "id": "10",
+          "name": "Oval 9",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "071D33"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "071D33"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{EBBA92D0-0E84-4369-924F-5E36BA5D487A}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 1752600,
+            "yEmu": 1657350,
+            "widthEmu": 685800,
+            "heightEmu": 685800
+          }
+        },
+        {
+          "id": "11",
+          "name": "Rectangle 10",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{CD7ABBD0-5C1B-4770-BC47-156BC7563B32}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "01",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 2200,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 2625,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 1828800,
+            "yEmu": 1790700,
+            "widthEmu": 533400,
+            "heightEmu": 400050
+          }
+        },
+        {
+          "id": "12",
+          "name": "Rectangle 11",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{863DFB09-478E-4F93-ADDC-4B4067A03F74}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Эффект для бизнеса",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1800,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1800,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "071D33"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 685800,
+            "yEmu": 2533650,
+            "widthEmu": 2819400,
+            "heightEmu": 342900
+          }
+        },
+        {
+          "id": "13",
+          "name": "Rounded Rectangle 12",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "EDF1F4"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "EDF1F4"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 9756"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{78C0E9A7-9E92-4BE0-805E-939967F4E620}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 914400,
+            "yEmu": 3048000,
+            "widthEmu": 2362200,
+            "heightEmu": 781050
+          }
+        },
+        {
+          "id": "14",
+          "name": "Rectangle 13",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{E9B04769-6128-4895-B44B-CF3F7576F81B}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Понятная цель",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "и экономика",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 1085850,
+            "yEmu": 3200400,
+            "widthEmu": 2019300,
+            "heightEmu": 495300
+          }
+        },
+        {
+          "id": "15",
+          "name": "Rectangle 14",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{C4158794-E9B2-4898-8BD0-309D38CF4707}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Метрики процесса",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Стоимость результата",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Владелец эффекта",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 990600,
+            "yEmu": 4171950,
+            "widthEmu": 2209800,
+            "heightEmu": 876300
+          }
+        },
+        {
+          "id": "16",
+          "name": "Oval 15",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "071D33"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "071D33"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{781BDAF0-7BCF-4069-BCD5-4FFCE2CB1290}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 5229225,
+            "yEmu": 1657350,
+            "widthEmu": 685800,
+            "heightEmu": 685800
+          }
+        },
+        {
+          "id": "17",
+          "name": "Rectangle 16",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{63505878-772C-4E30-94BF-118B213FE472}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "02",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1875,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1875,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 5305425,
+            "yEmu": 1790700,
+            "widthEmu": 533400,
+            "heightEmu": 400050
+          }
+        },
+        {
+          "id": "18",
+          "name": "Rectangle 17",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{F65ABB42-D2B1-4104-9AC5-DBF7360D0E56}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Качество решения",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1800,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1800,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "071D33"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 4162425,
+            "yEmu": 2533650,
+            "widthEmu": 2819400,
+            "heightEmu": 342900
+          }
+        },
+        {
+          "id": "19",
+          "name": "Rounded Rectangle 18",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "EDF1F4"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "EDF1F4"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 9756"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{A70BED15-6962-4E75-A28D-D161B447DFF0}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 4391025,
+            "yEmu": 3048000,
+            "widthEmu": 2362200,
+            "heightEmu": 781050
+          }
+        },
+        {
+          "id": "20",
+          "name": "Rectangle 19",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{67449DA3-D1BB-4CED-95B9-5B99D16E18DE}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Проверяемый",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "075BCB"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "результат",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "075BCB"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 4562475,
+            "yEmu": 3200400,
+            "widthEmu": 2019300,
+            "heightEmu": 495300
+          }
+        },
+        {
+          "id": "21",
+          "name": "Rectangle 20",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{9B0874DC-8F0F-4646-A65C-A2D4D0312EDA}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Данные и знания",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Эвалы перед выпуском",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Мониторинг качества",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 4467225,
+            "yEmu": 4171950,
+            "widthEmu": 2209800,
+            "heightEmu": 876300
+          }
+        },
+        {
+          "id": "22",
+          "name": "Oval 21",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 35,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "071D33"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "071D33"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{0EDEDAA2-AE22-4D78-9410-2E4A2726395A}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 8705850,
+            "yEmu": 1657350,
+            "widthEmu": 685800,
+            "heightEmu": 685800
+          }
+        },
+        {
+          "id": "23",
+          "name": "Rectangle 22",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{635033DE-B0D0-4890-871D-8FFF4BA61B24}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "03",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1875,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "FFFFFF"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1875,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "FFFFFF"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 8782050,
+            "yEmu": 1790700,
+            "widthEmu": 533400,
+            "heightEmu": 400050
+          }
+        },
+        {
+          "id": "24",
+          "name": "Rectangle 23",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{0FA79A72-EA6D-4AE3-8E29-FB9D02A75F71}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Контроль и поставка",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1800,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1800,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "071D33"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 7639050,
+            "yEmu": 2533650,
+            "widthEmu": 2819400,
+            "heightEmu": 342900
+          }
+        },
+        {
+          "id": "25",
+          "name": "Rounded Rectangle 24",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "EDF1F4"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "EDF1F4"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 9756"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{E29D9EC6-4F68-4C0E-B844-E02E68E98E9A}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 7867650,
+            "yEmu": 3048000,
+            "widthEmu": 2362200,
+            "heightEmu": 781050
+          }
+        },
+        {
+          "id": "26",
+          "name": "Rectangle 25",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{F15CBC7B-22F7-49AB-B163-EFFD42D8964E}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Управляемые",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "008A82"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "риски",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1350,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1350,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "008A82"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 8039100,
+            "yEmu": 3200400,
+            "widthEmu": 2019300,
+            "heightEmu": 495300
+          }
+        },
+        {
+          "id": "27",
+          "name": "Rectangle 26",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{83D0E9B4-B656-43C3-BB7A-0FCAC2BD10B9}",
+          "textStyle": {
+            "anchor": 1
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Права доступа",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Передача человеку",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            },
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Ответственные и план",
+                  "textStyle": {
+                    "bold": false,
+                    "fontSize": 1275,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "536777"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": false,
+                "fontSize": 1275,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "536777"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 2
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 7943850,
+            "yEmu": 4171950,
+            "widthEmu": 2209800,
+            "heightEmu": 876300
+          }
+        },
+        {
+          "id": "28",
+          "name": "Rounded Rectangle 27",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "FCE9D8"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "FCE9D8"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 9677"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{F0F1BD0E-385F-421C-B348-F51F3315B187}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 609600,
+            "yEmu": 5791200,
+            "widthEmu": 10972800,
+            "heightEmu": 590550
+          }
+        },
+        {
+          "id": "29",
+          "name": "Rounded Rectangle 28",
+          "type": 5,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 26,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 1,
+                "value": "F28A20"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 1,
+                "color": {
+                  "type": 1,
+                  "value": "F28A20"
+                },
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [
+              {
+                "name": "adj",
+                "formula": "val 50000"
+              }
+            ],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{0A8AA0DD-CE28-45EF-9FDE-33222CD939EA}",
+          "paragraphs": [],
+          "bbox": {
+            "xEmu": 609600,
+            "yEmu": 5791200,
+            "widthEmu": 66675,
+            "heightEmu": 590550
+          }
+        },
+        {
+          "id": "30",
+          "name": "Rectangle 29",
+          "type": 1,
+          "effects": [],
+          "children": [],
+          "levelsStyles": [],
+          "citations": [],
+          "shape": {
+            "geometry": 5,
+            "fill": {
+              "type": 0,
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "line": {
+              "widthEmu": 0,
+              "fill": {
+                "type": 0,
+                "gradientStops": [],
+                "pictureEffects": []
+              },
+              "style": 1
+            },
+            "adjustmentList": [],
+            "customPaths": [],
+            "customGeometryGuides": []
+          },
+          "creationId": "{13C069E0-9078-46A3-A90F-8F46731FC3CE}",
+          "textStyle": {
+            "anchor": 2
+          },
+          "paragraphs": [
+            {
+              "id": "",
+              "runs": [
+                {
+                  "id": "",
+                  "text": "Блокирующий пробел нельзя компенсировать высоким средним баллом.",
+                  "textStyle": {
+                    "bold": true,
+                    "fontSize": 1500,
+                    "fill": {
+                      "type": 1,
+                      "color": {
+                        "type": 1,
+                        "value": "071D33"
+                      },
+                      "gradientStops": [],
+                      "pictureEffects": []
+                    }
+                  },
+                  "citations": [],
+                  "reviewMarkIds": []
+                }
+              ],
+              "textStyle": {
+                "bold": true,
+                "fontSize": 1500,
+                "fill": {
+                  "type": 1,
+                  "color": {
+                    "type": 1,
+                    "value": "008A82"
+                  },
+                  "gradientStops": [],
+                  "pictureEffects": []
+                },
+                "alignment": 1
+              },
+              "inlineNodes": [],
+              "paragraphStyle": {
+                "bulletCharacter": "",
+                "tabStops": []
+              }
+            }
+          ],
+          "bbox": {
+            "xEmu": 838200,
+            "yEmu": 5924550,
+            "widthEmu": 10477500,
+            "heightEmu": 323850
+          }
+        }
+      ],
+      "background": {
+        "fill": {
+          "type": 1,
+          "color": {
+            "type": 1,
+            "value": "F4F7FA"
+          },
+          "gradientStops": [],
+          "pictureEffects": []
+        }
+      },
+      "notesSlide": {
+        "id": "",
+        "elements": [
+          {
+            "id": "",
+            "name": "Slide Image Placeholder 1",
+            "type": 0,
+            "placeholderIndex": 0,
+            "placeholderType": "sldImg",
+            "zIndex": 0,
+            "paragraphs": [],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          },
+          {
+            "id": "",
+            "name": "Notes Placeholder 2",
+            "type": 1,
+            "placeholderIndex": 1,
+            "placeholderType": "body",
+            "zIndex": 0,
+            "textStyle": {},
+            "paragraphs": [
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Визуальный прототип Синимекс, 2 слайда. Не оценка клиента.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Содержательная основа: src/content/rubric.yaml v1; docs/METHODOLOGY.md.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Три условия — укрупнённое объяснение методики; исходные четыре группы и 12 измерений не заменяются.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Визуальный исходник: пользовательский Digital_Ruble_Explainer_RU_v3.pptx, слайды 1–2, адаптация по просьбе пользователя.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Бренд: https://www.cinimex.ru/ ; логотип https://www.cinimex.ru/local/templates/.default/images/logo_ru.svg ; оранжевый #F28A20 из SVG.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              },
+              {
+                "id": "",
+                "runs": [
+                  {
+                    "id": "",
+                    "text": "Дополнительное исследование подачи: https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/november%202025/the-state-of-ai-2025-agents-innovation_cmyk-v1.pdf и https://www.bain.com/insights/topics/technology-report/ . Чужие числа не использованы.",
+                    "citations": [],
+                    "reviewMarkIds": []
+                  }
+                ],
+                "textStyle": {},
+                "inlineNodes": []
+              }
+            ],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          },
+          {
+            "id": "",
+            "name": "Slide Number Placeholder 3",
+            "type": 1,
+            "placeholderIndex": 5,
+            "placeholderType": "sldNum",
+            "zIndex": 0,
+            "textStyle": {},
+            "paragraphs": [
+              {
+                "id": "",
+                "runs": [],
+                "inlineNodes": [],
+                "textStyle": {}
+              }
+            ],
+            "effects": [],
+            "children": [],
+            "levelsStyles": [],
+            "citations": []
+          }
+        ],
+        "index": 0,
+        "useLayoutId": "/ppt/slideLayouts/slideLayout1.xml",
+        "widthEmu": 0,
+        "heightEmu": 0
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "name": "Master",
+      "elements": [],
+      "background": {
+        "ref": {
+          "index": 1001,
+          "schemeColor": "bg1"
+        }
+      },
+      "type": "master",
+      "bodyLevelStyles": [
+        {
+          "level": 1,
+          "textStyle": {
+            "fontSize": 2800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 228600,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 1000
+          }
+        },
+        {
+          "level": 2,
+          "textStyle": {
+            "fontSize": 2400,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 685800,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 3,
+          "textStyle": {
+            "fontSize": 2000,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 1143000,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 4,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 1600200,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 5,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 2057400,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 6,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 2514600,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 7,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 2971800,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 8,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 3429000,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        },
+        {
+          "level": 9,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "•",
+            "marginLeft": 3886200,
+            "indent": -228600,
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 500
+          }
+        }
+      ],
+      "titleLevelStyles": [
+        {
+          "level": 1,
+          "textStyle": {
+            "fontSize": 4400,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mj-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "lineSpacingPercent": 90000,
+            "tabStops": [],
+            "spaceBeforePoints": 0
+          }
+        }
+      ],
+      "otherLevelStyles": [
+        {
+          "level": 1,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 0,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 2,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 457200,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 3,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 914400,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 4,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 1371600,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 5,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 1828800,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 6,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 2286000,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 7,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 2743200,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 8,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 3200400,
+            "tabStops": []
+          }
+        },
+        {
+          "level": 9,
+          "textStyle": {
+            "fontSize": 1800,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "tx1"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            },
+            "alignment": 1,
+            "typeface": "+mn-lt"
+          },
+          "paragraphStyle": {
+            "bulletCharacter": "",
+            "marginLeft": 3657600,
+            "tabStops": []
+          }
+        }
+      ],
+      "parentLayoutId": "",
+      "colorMap": {
+        "accent1": "accent1",
+        "accent2": "accent2",
+        "accent3": "accent3",
+        "accent4": "accent4",
+        "accent5": "accent5",
+        "accent6": "accent6",
+        "bg1": "lt1",
+        "bg2": "lt2",
+        "tx1": "dk1",
+        "tx2": "dk2",
+        "hlink": "hlink",
+        "folHlink": "folHlink"
+      },
+      "theme": {
+        "name": "ChatGPT",
+        "colorScheme": {
+          "name": "ChatGPT",
+          "colors": [
+            {
+              "name": "accent1",
+              "color": {
+                "type": 1,
+                "value": "156082"
+              }
+            },
+            {
+              "name": "accent2",
+              "color": {
+                "type": 1,
+                "value": "E97132"
+              }
+            },
+            {
+              "name": "accent3",
+              "color": {
+                "type": 1,
+                "value": "196B24"
+              }
+            },
+            {
+              "name": "accent4",
+              "color": {
+                "type": 1,
+                "value": "0F9ED5"
+              }
+            },
+            {
+              "name": "accent5",
+              "color": {
+                "type": 1,
+                "value": "A02B93"
+              }
+            },
+            {
+              "name": "accent6",
+              "color": {
+                "type": 1,
+                "value": "4EA72E"
+              }
+            },
+            {
+              "name": "dk1",
+              "color": {
+                "type": 1,
+                "value": "000000"
+              }
+            },
+            {
+              "name": "lt1",
+              "color": {
+                "type": 1,
+                "value": "FFFFFF"
+              }
+            },
+            {
+              "name": "dk2",
+              "color": {
+                "type": 1,
+                "value": "0E2841"
+              }
+            },
+            {
+              "name": "lt2",
+              "color": {
+                "type": 1,
+                "value": "E8E8E8"
+              }
+            },
+            {
+              "name": "hlink",
+              "color": {
+                "type": 1,
+                "value": "467886"
+              }
+            },
+            {
+              "name": "folHlink",
+              "color": {
+                "type": 1,
+                "value": "96607D"
+              }
+            }
+          ]
+        },
+        "fillStyleList": [
+          {
+            "type": 1,
+            "color": {
+              "type": 2,
+              "value": "phClr"
+            },
+            "gradientStops": [],
+            "pictureEffects": []
+          },
+          {
+            "type": 2,
+            "gradientStops": [
+              {
+                "position": 0,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 67000,
+                    "lumMod": 110000,
+                    "satMod": 105000
+                  }
+                }
+              },
+              {
+                "position": 50000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 73000,
+                    "lumMod": 105000,
+                    "satMod": 103000
+                  }
+                }
+              },
+              {
+                "position": 100000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 81000,
+                    "lumMod": 105000,
+                    "satMod": 109000
+                  }
+                }
+              }
+            ],
+            "gradientKind": 1,
+            "angleDeg": 90,
+            "isScaled": false,
+            "pictureEffects": []
+          },
+          {
+            "type": 2,
+            "gradientStops": [
+              {
+                "position": 0,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 94000,
+                    "lumMod": 102000,
+                    "satMod": 103000
+                  }
+                }
+              },
+              {
+                "position": 50000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "shade": 100000,
+                    "lumMod": 100000,
+                    "satMod": 110000
+                  }
+                }
+              },
+              {
+                "position": 100000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "shade": 78000,
+                    "lumMod": 99000,
+                    "satMod": 120000
+                  }
+                }
+              }
+            ],
+            "gradientKind": 1,
+            "angleDeg": 90,
+            "isScaled": false,
+            "pictureEffects": []
+          }
+        ],
+        "backgroundFillStyleList": [
+          {
+            "type": 1,
+            "color": {
+              "type": 2,
+              "value": "phClr"
+            },
+            "gradientStops": [],
+            "pictureEffects": []
+          },
+          {
+            "type": 1,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 95000,
+                "satMod": 170000
+              }
+            },
+            "gradientStops": [],
+            "pictureEffects": []
+          },
+          {
+            "type": 2,
+            "gradientStops": [
+              {
+                "position": 0,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 93000,
+                    "shade": 98000,
+                    "lumMod": 102000,
+                    "satMod": 150000
+                  }
+                }
+              },
+              {
+                "position": 50000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "tint": 98000,
+                    "shade": 90000,
+                    "lumMod": 103000,
+                    "satMod": 130000
+                  }
+                }
+              },
+              {
+                "position": 100000,
+                "color": {
+                  "type": 2,
+                  "value": "phClr",
+                  "transform": {
+                    "shade": 63000,
+                    "satMod": 120000
+                  }
+                }
+              }
+            ],
+            "gradientKind": 1,
+            "angleDeg": 90,
+            "isScaled": false,
+            "pictureEffects": []
+          }
+        ],
+        "lineStyleList": [
+          {
+            "style": 1,
+            "widthEmu": 12700,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "phClr"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            }
+          },
+          {
+            "style": 1,
+            "widthEmu": 19050,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "phClr"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            }
+          },
+          {
+            "style": 1,
+            "widthEmu": 25400,
+            "fill": {
+              "type": 1,
+              "color": {
+                "type": 2,
+                "value": "phClr"
+              },
+              "gradientStops": [],
+              "pictureEffects": []
+            }
+          }
+        ],
+        "effectStyleList": [
+          {
+            "effects": []
+          },
+          {
+            "effects": []
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 16000
+                    }
+                  },
+                  "blurRadius": 57150,
+                  "distance": 19050,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 6000
+                    }
+                  },
+                  "blurRadius": 19050,
+                  "distance": 9525,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 8000
+                    }
+                  },
+                  "blurRadius": 28575,
+                  "distance": 9525,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 10000
+                    }
+                  },
+                  "blurRadius": 57150,
+                  "distance": 19050,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 12000
+                    }
+                  },
+                  "blurRadius": 114300,
+                  "distance": 38100,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 16000
+                    }
+                  },
+                  "blurRadius": 171450,
+                  "distance": 57150,
+                  "direction": 5400000
+                }
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": 1,
+                "shadow": {
+                  "color": {
+                    "type": 1,
+                    "value": "000000",
+                    "transform": {
+                      "alpha": 24000
+                    }
+                  },
+                  "blurRadius": 266700,
+                  "distance": 95250,
+                  "direction": 5400000
+                }
+              }
+            ]
+          }
+        ],
+        "fontScheme": {
+          "name": "Office",
+          "majorFont": {
+            "latinTypeface": "Calibri Light",
+            "eastAsianTypeface": "Calibri Light",
+            "complexScriptTypeface": "Calibri Light",
+            "supplementalFonts": []
+          },
+          "minorFont": {
+            "latinTypeface": "Calibri",
+            "eastAsianTypeface": "Calibri",
+            "complexScriptTypeface": "Calibri",
+            "supplementalFonts": []
+          }
+        }
+      },
+      "slideGuides": []
+    },
+    {
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "Title Slide",
+      "elements": [],
+      "type": "title",
+      "bodyLevelStyles": [],
+      "titleLevelStyles": [],
+      "otherLevelStyles": [],
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "slideGuides": []
+    }
+  ],
+  "theme": {
+    "name": "ChatGPT",
+    "colorScheme": {
+      "name": "ChatGPT",
+      "colors": [
+        {
+          "name": "accent1",
+          "color": {
+            "type": 1,
+            "value": "156082"
+          }
+        },
+        {
+          "name": "accent2",
+          "color": {
+            "type": 1,
+            "value": "E97132"
+          }
+        },
+        {
+          "name": "accent3",
+          "color": {
+            "type": 1,
+            "value": "196B24"
+          }
+        },
+        {
+          "name": "accent4",
+          "color": {
+            "type": 1,
+            "value": "0F9ED5"
+          }
+        },
+        {
+          "name": "accent5",
+          "color": {
+            "type": 1,
+            "value": "A02B93"
+          }
+        },
+        {
+          "name": "accent6",
+          "color": {
+            "type": 1,
+            "value": "4EA72E"
+          }
+        },
+        {
+          "name": "dk1",
+          "color": {
+            "type": 1,
+            "value": "000000"
+          }
+        },
+        {
+          "name": "lt1",
+          "color": {
+            "type": 1,
+            "value": "FFFFFF"
+          }
+        },
+        {
+          "name": "dk2",
+          "color": {
+            "type": 1,
+            "value": "0E2841"
+          }
+        },
+        {
+          "name": "lt2",
+          "color": {
+            "type": 1,
+            "value": "E8E8E8"
+          }
+        },
+        {
+          "name": "hlink",
+          "color": {
+            "type": 1,
+            "value": "467886"
+          }
+        },
+        {
+          "name": "folHlink",
+          "color": {
+            "type": 1,
+            "value": "96607D"
+          }
+        }
+      ]
+    },
+    "fillStyleList": [
+      {
+        "type": 1,
+        "color": {
+          "type": 2,
+          "value": "phClr"
+        },
+        "gradientStops": [],
+        "pictureEffects": []
+      },
+      {
+        "type": 2,
+        "gradientStops": [
+          {
+            "position": 0,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 67000,
+                "lumMod": 110000,
+                "satMod": 105000
+              }
+            }
+          },
+          {
+            "position": 50000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 73000,
+                "lumMod": 105000,
+                "satMod": 103000
+              }
+            }
+          },
+          {
+            "position": 100000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 81000,
+                "lumMod": 105000,
+                "satMod": 109000
+              }
+            }
+          }
+        ],
+        "gradientKind": 1,
+        "angleDeg": 90,
+        "isScaled": false,
+        "pictureEffects": []
+      },
+      {
+        "type": 2,
+        "gradientStops": [
+          {
+            "position": 0,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 94000,
+                "lumMod": 102000,
+                "satMod": 103000
+              }
+            }
+          },
+          {
+            "position": 50000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "shade": 100000,
+                "lumMod": 100000,
+                "satMod": 110000
+              }
+            }
+          },
+          {
+            "position": 100000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "shade": 78000,
+                "lumMod": 99000,
+                "satMod": 120000
+              }
+            }
+          }
+        ],
+        "gradientKind": 1,
+        "angleDeg": 90,
+        "isScaled": false,
+        "pictureEffects": []
+      }
+    ],
+    "backgroundFillStyleList": [
+      {
+        "type": 1,
+        "color": {
+          "type": 2,
+          "value": "phClr"
+        },
+        "gradientStops": [],
+        "pictureEffects": []
+      },
+      {
+        "type": 1,
+        "color": {
+          "type": 2,
+          "value": "phClr",
+          "transform": {
+            "tint": 95000,
+            "satMod": 170000
+          }
+        },
+        "gradientStops": [],
+        "pictureEffects": []
+      },
+      {
+        "type": 2,
+        "gradientStops": [
+          {
+            "position": 0,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 93000,
+                "shade": 98000,
+                "lumMod": 102000,
+                "satMod": 150000
+              }
+            }
+          },
+          {
+            "position": 50000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "tint": 98000,
+                "shade": 90000,
+                "lumMod": 103000,
+                "satMod": 130000
+              }
+            }
+          },
+          {
+            "position": 100000,
+            "color": {
+              "type": 2,
+              "value": "phClr",
+              "transform": {
+                "shade": 63000,
+                "satMod": 120000
+              }
+            }
+          }
+        ],
+        "gradientKind": 1,
+        "angleDeg": 90,
+        "isScaled": false,
+        "pictureEffects": []
+      }
+    ],
+    "lineStyleList": [
+      {
+        "style": 1,
+        "widthEmu": 12700,
+        "fill": {
+          "type": 1,
+          "color": {
+            "type": 2,
+            "value": "phClr"
+          },
+          "gradientStops": [],
+          "pictureEffects": []
+        }
+      },
+      {
+        "style": 1,
+        "widthEmu": 19050,
+        "fill": {
+          "type": 1,
+          "color": {
+            "type": 2,
+            "value": "phClr"
+          },
+          "gradientStops": [],
+          "pictureEffects": []
+        }
+      },
+      {
+        "style": 1,
+        "widthEmu": 25400,
+        "fill": {
+          "type": 1,
+          "color": {
+            "type": 2,
+            "value": "phClr"
+          },
+          "gradientStops": [],
+          "pictureEffects": []
+        }
+      }
+    ],
+    "effectStyleList": [
+      {
+        "effects": []
+      },
+      {
+        "effects": []
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 16000
+                }
+              },
+              "blurRadius": 57150,
+              "distance": 19050,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 6000
+                }
+              },
+              "blurRadius": 19050,
+              "distance": 9525,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 8000
+                }
+              },
+              "blurRadius": 28575,
+              "distance": 9525,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 10000
+                }
+              },
+              "blurRadius": 57150,
+              "distance": 19050,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 12000
+                }
+              },
+              "blurRadius": 114300,
+              "distance": 38100,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 16000
+                }
+              },
+              "blurRadius": 171450,
+              "distance": 57150,
+              "direction": 5400000
+            }
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "type": 1,
+            "shadow": {
+              "color": {
+                "type": 1,
+                "value": "000000",
+                "transform": {
+                  "alpha": 24000
+                }
+              },
+              "blurRadius": 266700,
+              "distance": 95250,
+              "direction": 5400000
+            }
+          }
+        ]
+      }
+    ],
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light",
+        "eastAsianTypeface": "Calibri Light",
+        "complexScriptTypeface": "Calibri Light",
+        "supplementalFonts": []
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri",
+        "eastAsianTypeface": "Calibri",
+        "complexScriptTypeface": "Calibri",
+        "supplementalFonts": []
+      }
+    }
+  },
+  "charts": [],
+  "images": [
+    {
+      "id": "/ppt/media/image.png",
+      "contentType": "image/png",
+      "asset": "logo.svg"
+    }
+  ],
+  "contentReferences": [],
+  "fonts": [],
+  "tableStyles": {
+    "defaultStyleId": "{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}",
+    "outerXml": "<a:tblStyleLst xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" def=\"{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}\" />"
+  },
+  "viewProperties": {
+    "gridSpacingCxEmu": 72008,
+    "gridSpacingCyEmu": 72008,
+    "slideViewSnapToGrid": false
+  },
+  "textStyles": [],
+  "people": [],
+  "threads": []
+}

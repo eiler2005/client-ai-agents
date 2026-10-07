@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Оценка проекта ИИ-агента",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "status", "project", "scores"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Идентификатор оценки; совпадает с именем файла и попадает в имя PDF."
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "rubric_version": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["draft", "review", "final"] },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "client", "stage", "pattern", "assessed", "summary"],
+      "properties": {
+        "name": { "type": "string", "minLength": 3 },
+        "client": { "type": "string", "minLength": 2 },
+        "client_code": { "type": "string" },
+        "sponsor": { "type": "string", "description": "Роль заказчика процесса, не имя." },
+        "stage": { "type": "string" },
+        "pattern": { "type": "string" },
+        "started": { "type": "string", "format": "date" },
+        "assessed": { "type": "string", "format": "date" },
+        "assessors": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "summary": { "type": "string", "minLength": 20 },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "in": { "type": "array", "items": { "type": "string" } },
+            "out": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "stack": {
+          "type": "object",
+          "additionalProperties": { "type": "array", "items": { "type": "string" } }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "baseline": { "type": "string" },
+              "target": { "type": "string" },
+              "actual": { "type": "string" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "title", "date"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "kind": {
+            "enum": ["interview", "demo", "document", "code", "telemetry", "test", "observation"]
+          },
+          "title": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "confidence": { "enum": ["high", "medium", "low"] },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["level", "finding"],
+        "properties": {
+          "level": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "confidence": { "enum": ["high", "medium", "low"] },
+          "finding": { "type": "string", "minLength": 20 },
+          "evidence": { "type": "array", "items": { "type": "string" } },
+          "risk": { "type": "string" },
+          "recommendation": { "type": "string" },
+          "strength": { "type": "string" },
+          "criteria": {
+            "type": "object",
+            "additionalProperties": { "type": "integer", "minimum": 0, "maximum": 4 }
+          }
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "probability", "impact"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "dimension": { "type": "string" },
+          "probability": { "enum": ["low", "medium", "high"] },
+          "impact": { "enum": ["low", "medium", "high"] },
+          "mitigation": { "type": "string" },
+          "owner": { "type": "string" },
+          "due": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "horizon"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "horizon": { "enum": [30, 60, 90] },
+          "dimension": { "type": "string" },
+          "effort": { "enum": ["s", "m", "l"] },
+          "impact": { "enum": ["low", "medium", "high"] },
+          "owner": { "type": "string" },
+          "outcome": { "type": "string" }
+        }
+      }
+    },
+    "verdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decision": { "enum": ["go", "conditions", "fix", "no_go"] },
+        "rationale": { "type": "string" },
+        "conditions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "highlights": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+    "notes": { "type": "string" }
+  }
+}

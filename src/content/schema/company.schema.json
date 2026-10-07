@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Профиль компании для коммерческих документов",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "updated", "organisation", "sources", "facts", "offerings"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "updated": { "type": "string", "format": "date" },
+    "organisation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "legal_name", "founded", "positioning"],
+      "properties": {
+        "name": { "type": "string" },
+        "legal_name": { "type": "string" },
+        "founded": { "type": "integer", "minimum": 1900 },
+        "ceo": { "type": "string" },
+        "site": { "type": "string" },
+        "tagline": { "type": "string" },
+        "positioning": { "type": "string", "minLength": 40 }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "kind", "date"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "kind": {
+            "enum": ["presentation", "site", "article", "registry", "reference", "case", "internal"]
+          },
+          "url": { "type": "string" },
+          "date": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "value", "source", "as_of"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "label": { "type": "string" },
+          "value": { "type": "string" },
+          "source": { "type": "string" },
+          "as_of": { "type": "string", "format": "date" },
+          "perennial": {
+            "type": "boolean",
+            "description": "Факт не устаревает: лицензия, сертификат, год основания."
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "industries": { "$ref": "#/$defs/described" },
+    "offerings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "summary", "source"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "summary": { "type": "string", "minLength": 30 },
+          "includes": { "type": "array", "items": { "type": "string" } },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "summary", "layers", "source"],
+      "properties": {
+        "name": { "type": "string" },
+        "summary": { "type": "string" },
+        "source": { "type": "string" },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "items"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "items": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "stack": {
+      "type": "object",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "integrations": { "type": "array", "items": { "type": "string" } },
+    "security": { "type": "array", "items": { "type": "string" } },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description", "source"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "effect": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "proof": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "result", "source", "as_of"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "result": { "type": "string" },
+          "industries": { "type": "array", "items": { "type": "string" } },
+          "offering": { "type": "string" },
+          "source": { "type": "string" },
+          "as_of": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "clients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "source"],
+        "properties": {
+          "name": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "unit": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "telegram": { "type": "string", "pattern": "^[A-Za-z0-9_]{3,32}$" },
+          "phone": { "type": "string" },
+          "default": { "type": "boolean" }
+        }
+      }
+    },
+    "method": { "$ref": "#/$defs/steps" },
+    "method_output": { "type": "string" },
+    "method_source": { "type": "string" },
+    "delivery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "description"],
+        "properties": {
+          "stage": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "delivery_source": { "type": "string" },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description", "source"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "focus": { "type": "string" },
+          "description": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "caveat": { "type": "string", "minLength": 40 }
+  },
+  "$defs": {
+    "described": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "description"],
+        "properties": {
+          "step": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}
