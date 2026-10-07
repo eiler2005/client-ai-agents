@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 
 from .content import CONTENT, Company, ContentError, Proposal, read_yaml, validate
+from .image_quality import inspect_pptx_images
 from .render import CONFIDENCE, HORIZON_TITLE
 from .scoring import Result
 
@@ -420,4 +421,11 @@ def build(deck: dict, out: Path) -> dict:
             ["Презентация не собрана: " + (process.stderr or process.stdout)[-2500:]]
         )
     manifest = json.loads(target.with_suffix(".manifest.json").read_text(encoding="utf-8"))
+    image_quality = inspect_pptx_images(target)
+    manifest.setdefault("checks", {})["image_quality"] = image_quality
+    target.with_suffix(".manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    if not image_quality["passed"]:
+        raise ContentError(["Качество изображений: " + error for error in image_quality["errors"]])
     return {**manifest, "workspace": str(workspace)}

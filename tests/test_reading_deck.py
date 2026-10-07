@@ -272,3 +272,49 @@ def test_manifest_update_preserves_manual_review_gate_and_other_fields(tmp_path)
 def test_deliverables_cannot_be_written_next_to_committed_spec(tmp_path):
     with pytest.raises(ValueError, match="ignored dist"):
         reading.resolve_output(tmp_path / "docs/reading.pptx", root=tmp_path)
+
+
+def test_tiny_source_diagram_text_stops_before_node_render(spec, company, tmp_path, monkeypatch):
+    (tmp_path / "diagram.svg").write_text(
+        '<svg viewBox="0 0 1000 600"><text font-size="9">Illustrative label</text></svg>'
+    )
+    monkeypatch.setattr(reading, "ROOT", tmp_path)
+    spec["slides"].append(
+        {
+            "number": 2,
+            "title": "Invented diagram",
+            "layout": "source-image",
+            "blocks": [],
+            "image_path": "diagram.svg",
+        }
+    )
+    with pytest.raises(ValueError, match="raster upscaling does not help"):
+        reading.validate_spec(spec, company, {"diagrams": []})
+
+
+@pytest.mark.parametrize("field", ["management_template", "visual_pattern"])
+def test_unknown_library_reference_stops_before_render(spec, company, field):
+    design = {
+        "management_template": "M02",
+        "visual_pattern": "V01",
+        "relationship": "Evidence supports a proposed decision.",
+        "reader_check": "Explain the proposed next step and its condition.",
+    }
+    design[field] = "missing"
+    spec["slides"][0]["design"] = design
+    with pytest.raises(ValueError, match=f"unknown {field}"):
+        reading.validate_spec(spec, company, {"diagrams": []})
+
+
+def test_phase_gate_cannot_omit_transition_evidence(spec, company):
+    spec["slides"].append(
+        {
+            "number": 2,
+            "title": "Proposed delivery phases",
+            "layout": "gates",
+            "blocks": [{"heading": "Prepare", "body": "Verify the input data."}],
+            "gates": [{"result": "Agreed scope", "owner": "Process owner"}],
+        }
+    )
+    with pytest.raises(ValueError, match="transition evidence"):
+        reading.validate_spec(spec, company, {"diagrams": []})

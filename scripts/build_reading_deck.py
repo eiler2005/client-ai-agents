@@ -2,7 +2,7 @@
 
 Run with ``uv run python scripts/build_reading_deck.py --spec ... --out dist/...pptx``.
 Generated client content stays in ignored dist/ and an external temporary workspace.
-The renderer owns the manifest; this wrapper updates only checks.text_extraction.
+The renderer owns the manifest; this wrapper verifies text and embedded images.
 """
 
 from __future__ import annotations
@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from assess.content import Company, ContentError, load_company  # noqa: E402
+from assess.image_quality import inspect_pptx_images, validate_svg_text  # noqa: E402
 
 LAYOUTS = {
     "cover",
@@ -50,6 +51,9 @@ LAYOUTS = {
     "options-table",
     "value-tree",
     "acceptance-cases",
+    "decision-routes",
+    "method-journey",
+    "phase-gates",
 }
 VISUAL_BLOCKS = {
     "work-comparison": 2,
@@ -60,6 +64,9 @@ VISUAL_BLOCKS = {
     "options-table": 2,
     "value-tree": 3,
     "acceptance-cases": 3,
+    "decision-routes": 3,
+    "method-journey": 8,
+    "phase-gates": 3,
 }
 NS = {
     "a": "http://schemas.openxmlformats.org/drawingml/2006/main",
@@ -92,6 +99,7 @@ def validate_spec(data: dict, company: Company, diagrams: dict) -> None:
         raise ValueError("each diagram needs a non-empty id")
     if len(set(diagram_ids)) != len(diagram_ids):
         raise ValueError("diagram ids must be unique")
+    library = None
     for number, slide in enumerate(slides, 1):
         label = f"slide {number}"
         if not isinstance(slide, dict):
@@ -132,6 +140,46 @@ def validate_spec(data: dict, company: Company, diagrams: dict) -> None:
             if len(blocks) != VISUAL_BLOCKS[layout]:
                 raise ValueError(f"{label}: {layout} requires {VISUAL_BLOCKS[layout]} blocks")
             validate_visual_copy(visual, label)
+        design = slide.get("design")
+        if design is not None:
+            if not isinstance(design, dict) or any(
+                not isinstance(design.get(field), str) or not design[field].strip()
+                for field in (
+                    "management_template",
+                    "visual_pattern",
+                    "relationship",
+                    "reader_check",
+                )
+            ):
+                raise ValueError(
+                    f"{label}: design requires template, pattern, relationship and reader_check"
+                )
+            if library is None:
+                library = read_json(ROOT / "skills/consulting-presentations/library/catalog.json")
+            for field, kind in (
+                ("management_template", "management"),
+                ("visual_pattern", "visual"),
+            ):
+                available = {entry["id"] for entry in library["entries"] if entry["kind"] == kind}
+                if design[field] not in available:
+                    raise ValueError(f"{label}: unknown {field} {design[field]!r}")
+        if layout in {"gates", "phase-gates"}:
+            gates = slide.get("gates")
+            if (
+                not isinstance(gates, list)
+                or len(gates) != len(blocks)
+                or any(
+                    not isinstance(gate, dict)
+                    or any(
+                        not isinstance(gate.get(field), str) or not gate[field].strip()
+                        for field in ("result", "gate", "owner")
+                    )
+                    for gate in gates
+                )
+            ):
+                raise ValueError(
+                    f"{label}: each phase requires result, transition evidence and owner"
+                )
         if layout == "context-diptych" and not isinstance(slide.get("image_path"), str):
             raise ValueError(f"{label}: context-diptych requires image_path")
         if layout == "contents":
@@ -167,6 +215,14 @@ def validate_spec(data: dict, company: Company, diagrams: dict) -> None:
         for field in ("cover_image", "image_path"):
             if slide.get(field) and not (ROOT / slide[field]).is_file():
                 raise ValueError(f"{label}: missing {field}: {slide[field]}")
+        if layout == "source-image":
+            source = ROOT / slide["image_path"]
+            if source.suffix.lower() != ".svg":
+                raise ValueError(f"{label}: source-image requires SVG; adapt bitmap diagrams")
+            try:
+                validate_svg_text(source, (1136, 430))
+            except ValueError as exc:
+                raise ValueError(f"{label}: {exc}") from exc
 
 
 def validate_visual_copy(value, label: str) -> None:
@@ -424,13 +480,15 @@ def verify_text(spec: dict, company: Company, diagrams: dict, extracted: list[di
     }
 
 
-def update_manifest(path: Path, check: dict) -> None:
+def update_manifest(path: Path, check: dict, image_quality: dict | None = None) -> None:
     manifest = read_json(path)
     checks = manifest.setdefault("checks", {})
     # Never carry a prior manual approval onto a freshly rendered artifact.
     if checks.get("visual_review") is not False:
         raise ValueError("renderer manifest must start with checks.visual_review=false")
     checks["text_extraction"] = check
+    if image_quality is not None:
+        checks["image_quality"] = image_quality
     write_json(path, manifest)
 
 
@@ -513,9 +571,14 @@ def build(spec_path: Path, out: Path, diagrams_path: Path | None, skill: Path) -
     )
     check = verify_text(spec, company, diagrams, extracted)
     check["extracted_text"] = str(text_path)
-    update_manifest(out.with_suffix(".manifest.json"), check)
+    image_quality = inspect_pptx_images(
+        out, {slide["number"] for slide in spec["slides"] if slide["layout"] == "source-image"}
+    )
+    update_manifest(out.with_suffix(".manifest.json"), check, image_quality)
     if not check["passed"]:
         raise ValueError("PPTX text verification failed:\n" + "\n".join(check["missing"]))
+    if not image_quality["passed"]:
+        raise ValueError("PPTX image quality failed:\n" + "\n".join(image_quality["errors"]))
     return {
         "output": str(out),
         "workspace": str(workspace),

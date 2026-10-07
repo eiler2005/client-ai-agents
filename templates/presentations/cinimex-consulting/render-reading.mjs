@@ -17,7 +17,7 @@ const coverImage=await fs.readFile(coverAsset);
 const coverPrompt=await fs.readFile(coverAsset.replace(/\.[^.]+$/,'.prompt.json'),'utf8').then(v=>JSON.parse(v).prompt,()=>undefined);
 const inventory = (await fs.readFile(path.join(workspace,'template-inspect/template-inspect.ndjson'),'utf8')).trim().split('\n').map(JSON.parse);
 const layoutFor = part => part.layout;
-const visualLayouts=['work-comparison','context-diptych','annotated-choice','catalog-anatomy','answer-evidence','options-table','value-tree','acceptance-cases'];
+const visualLayouts=['work-comparison','context-diptych','annotated-choice','catalog-anatomy','answer-evidence','options-table','value-tree','acceptance-cases','decision-routes','method-journey','phase-gates'];
 const map = { outputSlides:data.slides.map(part => ({
   outputSlide:part.number, sourceSlide:part.number===1?1:2, narrativeRole:part.kicker,
   reuseMode:'duplicate-slide',
@@ -330,6 +330,60 @@ function route(slide,name,points,dashed=false,arrow=true,color=C.muted){
     slide.shapes.add({geometry:'custom',name:`${name}-arrow`,position:{left:ax,top:ay,width:aw,height:ah},fill:color,line:{fill:color,width:0},customPaths:[{width:aw,height:ah,commands:[...vertices.map((v,i)=>({[i?'lineTo':'moveTo']:{x:v[0]-ax,y:v[1]-ay}})),{close:{}}]}]});
   }
 }
+function decisionRoutes(slide,part){
+  visualBody(slide);const v=part.visual_copy,ys=[182,324,466];
+  // The vertical path continues only on "yes"; the horizontal exits hold the answer.
+  for(let i=0;i<2;i++)route(slide,`decision-yes-${i}`,[[205,ys[i]+78],[205,ys[i+1]]]);
+  for(let i=0;i<3;i++)route(slide,`decision-exit-${i}`,[[338,ys[i]+39],[470,ys[i]+39]],false,true,C.orange);
+  for(let i=0;i<3;i++){
+    const y=ys[i],b=part.blocks[i];
+    rect(slide,`decision-question-bg-${i}`,72,y,266,78,C.white,'#BECAD5');
+    addText(slide,`decision-question-${i}`,v.questions[i],86,y+12,238,57,21,C.navy,true);
+    addText(slide,`decision-exit-label-${i}`,v.exit_labels[i],353,y+49,110,51,17,'#9B4F10',true);
+    rect(slide,`decision-action-bg-${i}`,478,y,730,126,i===1?'#FFF2E5':C.white);
+    addText(slide,`decision-heading-${i}`,b.heading,494,y+8,698,32,21,C.navy,true);
+    addText(slide,`decision-body-${i}`,b.body,494,y+43,698,80,17,C.muted);
+    if(i<2)addText(slide,`decision-yes-label-${i}`,v.continue_label,221,y+99,115,26,17,C.muted);
+  }
+  addText(slide,'decision-final',v.final_action,72,563,266,44,17,C.navy,true);
+}
+function methodJourney(slide,part){
+  visualBody(slide);const v=part.visual_copy,xs=[72,662],ys=[218,308,398,488];
+  route(slide,'method-phase-link',[[613,196],[651,196]],false,true,C.orange);
+  for(let phase=0;phase<2;phase++){
+    const x=xs[phase];
+    addText(slide,`method-phase-${phase}`,v.phase_titles[phase],x,175,546,40,23,C.navy,true);
+    for(let row=0;row<4;row++){
+      const index=phase*4+row,b=part.blocks[index],y=ys[row];
+      if(row<3)route(slide,`method-next-${index}`,[[x+18,y+50],[x+18,ys[row+1]-3]],false,true,'#BECAD5');
+      addText(slide,`method-number-${index}`,String(index+1).padStart(2,'0'),x,y,43,29,21,C.orange,true);
+      addText(slide,`method-heading-${index}`,b.heading,x+52,y,494,31,21,C.navy,true);
+      addText(slide,`method-body-${index}`,b.body,x+52,y+33,494,row===3?83:54,17,C.muted);
+    }
+  }
+}
+function phaseGates(slide,part){
+  visualBody(slide);const v=part.visual_copy,xs=[218,550,882],w=324;
+  const rows=[{y:241,h:135,label:v.row_labels[0]},{y:378,h:60,label:v.row_labels[1]},{y:450,h:70,label:v.row_labels[2]},{y:534,h:50,label:v.row_labels[3]}];
+  for(const [j,row]of rows.entries()){
+    rect(slide,`phase-row-${j}`,72,row.y,1136,row.h,j%2?C.white:C.paper);
+    addText(slide,`phase-row-label-${j}`,row.label,72,row.y+8,128,row.h-12,17,C.navy,true);
+  }
+  for(let i=0;i<3;i++){
+    const x=xs[i],b=part.blocks[i],g=part.gates[i];
+    rect(slide,`phase-header-${i}`,x,177,w,55,C.navy);
+    addText(slide,`phase-heading-${i}`,b.heading,x+12,182,w-24,49,20,C.white,true);
+    addText(slide,`phase-work-${i}`,b.body,x+12,249,w-24,127,17,C.muted);
+    addText(slide,`phase-result-${i}`,g.result,x+12,386,w-24,52,18,C.navy,true);
+    addText(slide,`phase-evidence-${i}`,g.gate,x+12,458,w-24,62,17,C.navy);
+    addText(slide,`phase-role-${i}`,g.owner,x+12,542,w-24,44,17,C.muted);
+  }
+  // Markers sit between phase columns, never above the middle of a work item.
+  for(const [i,x]of [546,878].entries()){
+    route(slide,`phase-gate-${i}`,[[x,188],[x+9,205],[x,222],[x-9,205],[x,188]],false,false,C.orange);
+  }
+  addText(slide,'phase-return-rule',v.return_rule,72,590,1136,25,17,'#9B4F10',true);
+}
 function nativeDiagram(slide,part){
   clearBody(slide);remove(slide,[...titleNames,...bodyNames]);
   const d=diagrams.diagrams.find(d=>d.id===part.diagram_key);
@@ -362,7 +416,7 @@ async function sourceImage(slide,part){
   svg=svg.replace(/<svg\b[^>]*>/,tag=>tag.replace(/\s(?:width|height)="[^"]*"/g,'').replace('<svg',`<svg width="${viewBox[2]*4}" height="${viewBox[3]*4}"`));
   const image=await loadImage(Buffer.from(svg)),canvas=new Canvas(image.width,image.height);
   canvas.getContext('2d').drawImage(image,0,0);
-  slide.images.add({blob:new Uint8Array(await canvas.toBuffer('png')),contentType:'image/png',alt:`Исходная схема Claude: ${path.basename(file)}`,fit:'contain',position:{left:72,top:171,width:1136,height:430}});
+  slide.images.add({blob:new Uint8Array(await canvas.toBuffer('png')),contentType:'image/png',alt:part.image_caption??'Схема решения для обсуждения',fit:'contain',position:{left:72,top:171,width:1136,height:430}});
 }
 function gates(slide,part){
   clearBody(slide);remove(slide,[...titleNames,...bodyNames]);
@@ -411,6 +465,9 @@ for(const [i,slide]of p.slides.items.entries()){
     else if(layout==='options-table')optionsTable(slide,part);
     else if(layout==='value-tree')valueTree(slide,part);
     else if(layout==='acceptance-cases')acceptanceCases(slide,part);
+    else if(layout==='decision-routes')decisionRoutes(slide,part);
+    else if(layout==='method-journey')methodJourney(slide,part);
+    else if(layout==='phase-gates')phaseGates(slide,part);
     else if(layout==='executive-summary')executiveSummary(slide,part);
     else if(layout==='section-intro')sectionIntro(slide,part);
     else if(layout==='diagram')nativeDiagram(slide,part);
@@ -434,18 +491,22 @@ for(const [i,slide]of p.slides.items.entries()){
   slide.speakerNotes.textFrame.setText([part.title,...part.blocks.map(b=>`${b.heading}\n${b.body}`),...(part.visual_copy?[JSON.stringify(part.visual_copy,null,2)]:[]),part.takeaway,part.notes,...(part.diagram_key?diagrams.diagrams.find(d=>d.id===part.diagram_key).notes:[]),'Источники:',JSON.stringify(part.sources,null,2),
     ...(part.company_facts??[]).map(id=>JSON.stringify(data.company.facts.find(f=>f.id===id))),...(part.company_proof??[]).map(id=>JSON.stringify(data.company.proof.find(f=>f.id===id))),
     'Статус: рабочая концепция; состав пилота и требования подлежат согласованию.']);
-  const png=await p.export({slide,format:'png',scale:1.5});
+  const png=await p.export({slide,format:'png',scale:2});
   await fs.writeFile(path.join(preview,`slide-${String(i+1).padStart(2,'0')}.png`),new Uint8Array(await png.arrayBuffer()));
   const layout=await slide.export({format:'layout'});await fs.writeFile(path.join(workspace,'reading-layout',`slide-${i+1}.json`),await layout.text());
 }
 const pptx=await PresentationFile.exportPptx(p);await pptx.save(out);
 const digest=async file=>createHash('sha256').update(await fs.readFile(file)).digest('hex');
 const inputFile=path.resolve(args.spec);
-const visualAssets=[...new Set(data.slides.filter(s=>s.layout==='context-diptych').flatMap(s=>[path.resolve(root,s.image_path),path.resolve(root,s.image_path.replace(/\.[^.]+$/,'.prompt.json'))]))];
+const visualAssets=[...new Set(data.slides.filter(s=>s.image_path).flatMap(s=>[
+  path.resolve(root,s.image_path),
+  ...(s.layout==='context-diptych'?[path.resolve(root,s.image_path.replace(/\.[^.]+$/,'.prompt.json'))]:[])
+]))];
 const manifest={document:'presentation',id:data.id??'reading-deck',date:data.date,slides:data.slides.length,style:'cinimex-consulting',output:path.basename(out),sha256:await digest(out),
   deck_version:data.deck_version??2,
-  inputs:[inputFile,path.join(root,'src/content/company.yaml'),path.join(root,'templates/presentations/cinimex-consulting/template.json'),coverAsset,path.resolve(args.diagrams),fileURLToPath(import.meta.url),path.join(root,'templates/presentations/cinimex-consulting/style.yaml'),...visualAssets].map(file=>({name:path.basename(file),path:file})),
-  workspace,preview,checks:{native_template_clone:true,full_visible_copy:true,visual_review:false,pdf_built:false,powerpoint_opened:false,editorial_review:true}};
+  design_library:{skill:'consulting-presentations',blocks:data.slides.filter(s=>s.design).map(s=>({slide:s.number,...s.design}))},
+  inputs:[inputFile,path.join(root,'src/content/company.yaml'),path.join(root,'templates/presentations/cinimex-consulting/template.json'),coverAsset,path.resolve(args.diagrams),fileURLToPath(import.meta.url),path.join(root,'scripts/build_reading_deck.py'),path.join(root,'src/assess/image_quality.py'),path.join(root,'templates/presentations/cinimex-consulting/style.yaml'),path.join(root,'skills/consulting-presentations/SKILL.md'),path.join(root,'skills/consulting-presentations/library/catalog.json'),path.join(root,'skills/consulting-presentations/references/visual-patterns.md'),path.join(root,'skills/consulting-presentations/references/management-templates.md'),...visualAssets].map(file=>({name:path.basename(file),path:file})),
+  workspace,preview,preview_scale:2,checks:{native_template_clone:true,full_visible_copy:true,visual_review:false,pdf_built:false,powerpoint_opened:false,editorial_review:true}};
 for(const input of manifest.inputs)input.sha256=await digest(input.path);
 await fs.writeFile(out.replace(/\.pptx$/,'.manifest.json'),JSON.stringify(manifest,null,2));
 await fs.writeFile(path.join(workspace,'reading-text-checks.json'),JSON.stringify(checks,null,2));
